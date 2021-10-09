@@ -80,7 +80,9 @@ binding.btnRegisterFinish.setOnClickListener {
 
 **1. 화면이동+@**
   + 회원가입 성공 시 이전 로그인 화면으로 돌아오기
-  + 단, 회원가입 시 입력한 아이디와 비밀번호가 로그인 창에 입력되어 있어야 함
+  + 단, 회원가입 시 입력한 아이디와 비밀번호가 로그인 창에 입력되어 있어야 함   
+
+SignUpActivity.kt
 ```kotlin
  binding.btnRegisterFinish.setOnClickListener {
             if(canRegister()) { //칸 다 채웠을 때
@@ -91,6 +93,38 @@ binding.btnRegisterFinish.setOnClickListener {
                 setResult(RESULT_OK,intent_s)
                 finish() 
               }
+  ```   
+  SignInActivity.kt
+```kotlin
+ class SignInActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivitySignInBinding
+    lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
+    
+    override fun onCreate(savedInstanceState: Bundle?) {
+    
+    activityResultLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == RESULT_OK) {
+                val id = it.data?.getStringExtra("id")
+                Log.d("SignInActivity",id.toString())
+                binding.homeIdEdit.setText(id)
+
+                val pw = it.data?.getStringExtra("pw")
+                Log.d("SignInActivity",pw.toString())
+                binding.homePwEdit.setText(pw)
+            }
+        else{
+            Log.d("SignInActivity","result failed")
+        }}
+        
+        binding.btnRegister.setOnClickListener{
+            activityResultLauncher.launch(Intent(this,SignUpActivity::class.java))
+
+        }
+        .
+        .
+
   ```
               
 **2. 암시적 인텐트**
