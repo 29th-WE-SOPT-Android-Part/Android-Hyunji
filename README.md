@@ -223,6 +223,35 @@ activity_home.xml
  ```
  
 **2. setOnClickListener과 람다식** 
-//
-//https://hyeals.tistory.com/26
+
+코틀린은 자바와는 달리 '함수형 프로그래밍'이 가능한 언어이다!   
+> 💡 함수형 프로그래밍?   
+함수의 유기적 연결 및 동작이 프로그램의 최우선이 되는 프로그래밍 방식.    
+함수가 일급 객체로써의 의미를 가짐.
+
+> 💡 람다식(lambda)   
+ 코틀린에서는 기본으로 함수 자체를 람다식으로 생성하는 것을 지원한다. =익명함수   
+
+자바
+```java
+button.setOnClickListener(new OnClickListener(){ 
+      @Override 
+    public void onClick(View v){ 
+    //... 
+    } 
+   });
+   ```
+
+위와 같이 Button에 Click 발생시 그 이벤트를 캐치할 수 있는 ClickListener를 등록 할 수 있다. 그리고 이때 위와 같이 자바는 무명클래스의 인스턴스를 만들어야 한다.
+
+코틀린에서는 위의 무명클래스 인스턴스 대신 람다를 넘겨줄 수 있다.
+
+
+```kotlin
+button.setOnClickListener{view -> ...}
+```
+이런 코드가 작동하는 이유는 OnClickListener에 추상 메소드가 단 하나만 있기 때문이다.   
+(그런 인터페이스를 함수형 인터페이스 또는 SAM 인터페이스라고 한다.)   
+자바는 위와 같이 함수형 인터페이스를 활용하는 메소드가 많기 때문에 코틀린에서 함수형 인터페이스를 인자로 취하는 자바 메소드를 호출할 때 람다를 넘길 수 있게 해준다.
+
 
