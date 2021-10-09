@@ -24,8 +24,7 @@ class SignUpActivity : AppCompatActivity() {
                     putExtra("id",binding.registerIdEdit.text.toString())
                     putExtra("pw",binding.registerPwEdit.text.toString())
                 }
-                //intent.putExtra("id",binding.registerIdEdit.text.toString())
-                //intent.putExtra("id",binding.registerPwEdit.text.toString())
+
 
                 setResult(RESULT_OK,intent_s)
                 finish() } //다시 SignInActivity로 이동

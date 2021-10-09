@@ -14,15 +14,11 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
     lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding= ActivitySignInBinding.inflate(layoutInflater)
         val intent1= Intent(this,HomeActivity::class.java)
-
-
 
 
         activityResultLauncher = registerForActivityResult(
@@ -35,7 +31,6 @@ class SignInActivity : AppCompatActivity() {
                 val pw = it.data?.getStringExtra("pw")
                 Log.d("SignInActivity",pw.toString())
                 binding.homePwEdit.setText(pw)
-
 
             }
             else{
@@ -55,7 +50,7 @@ class SignInActivity : AppCompatActivity() {
         }
 
         binding.btnRegister.setOnClickListener{
-            activityResultLauncher.launch(Intent(this,SignUpActivity::class.java)) //TODO 이부분 수정 -> 여기 때문에 signUpActivity가 먼저 뜨는듯
+            activityResultLauncher.launch(Intent(this,SignUpActivity::class.java))
 
         }
 

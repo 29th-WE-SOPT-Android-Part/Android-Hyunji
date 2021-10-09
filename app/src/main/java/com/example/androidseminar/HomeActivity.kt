@@ -15,7 +15,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //binding= ActivityHomeBinding.inflate(layoutInflater)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         binding.user=User("윤현지","24","isfp")
 
