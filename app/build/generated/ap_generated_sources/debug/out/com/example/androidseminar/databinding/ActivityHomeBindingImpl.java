@@ -20,11 +20,9 @@ public class ActivityHomeBindingImpl extends ActivityHomeBinding  {
         sViewsWithIds.put(R.id.home_ageW_tv, 7);
         sViewsWithIds.put(R.id.home_mbtiW_tv, 8);
         sViewsWithIds.put(R.id.home_hello1_tv, 9);
-        sViewsWithIds.put(R.id.home_hello2_tv, 10);
-        sViewsWithIds.put(R.id.home_hello3_tv, 11);
-        sViewsWithIds.put(R.id.home_hello4_tv, 12);
-        sViewsWithIds.put(R.id.home_hello5_tv, 13);
-        sViewsWithIds.put(R.id.home_githubicon_iv, 14);
+        sViewsWithIds.put(R.id.home_follower_btn, 10);
+        sViewsWithIds.put(R.id.home_repository_btn, 11);
+        sViewsWithIds.put(R.id.container_home, 12);
     }
     // views
     @NonNull
@@ -35,23 +33,21 @@ public class ActivityHomeBindingImpl extends ActivityHomeBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityHomeBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 15, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 13, sIncludes, sViewsWithIds));
     }
     private ActivityHomeBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
+            , (androidx.fragment.app.FragmentContainerView) bindings[12]
             , (android.widget.TextView) bindings[2]
             , (android.widget.TextView) bindings[7]
-            , (android.widget.ImageView) bindings[14]
+            , (android.widget.Button) bindings[10]
             , (android.widget.TextView) bindings[9]
-            , (android.widget.TextView) bindings[10]
-            , (android.widget.TextView) bindings[11]
-            , (android.widget.TextView) bindings[12]
-            , (android.widget.TextView) bindings[13]
             , (android.widget.TextView) bindings[3]
             , (android.widget.TextView) bindings[8]
             , (android.widget.TextView) bindings[1]
             , (android.widget.TextView) bindings[6]
             , (android.widget.ImageView) bindings[5]
+            , (android.widget.Button) bindings[11]
             , (android.widget.TextView) bindings[4]
             );
         this.homeAgeTv.setTag(null);

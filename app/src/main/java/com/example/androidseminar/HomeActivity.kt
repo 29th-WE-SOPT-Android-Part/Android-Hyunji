@@ -12,6 +12,8 @@ import com.example.androidseminar.databinding.ActivityHomeBinding
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityHomeBinding
+    val followerFragment=FollowerFragment()
+    val repositoryFragment=RepositoryFragment()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,11 +23,19 @@ class HomeActivity : AppCompatActivity() {
         binding.user=User("윤현지","24","isfp")
 
        // initTransactionEvent()
+        supportFragmentManager.beginTransaction().add(R.id.container_home,followerFragment).commit()
+
 
         binding.homeFollowerBtn.setOnClickListener {
-            val fragment1=FollowerFragment()
-            supportFragmentManager.beginTransaction().add(R.id.container_home,fragment1).commit()
-            Log.d("HomeActivity","fragment1 added")
+
+            supportFragmentManager.beginTransaction().replace(R.id.container_home,followerFragment).commit()
+
+        }
+
+        binding.homeRepositoryBtn.setOnClickListener {
+
+            supportFragmentManager.beginTransaction().replace(R.id.container_home,repositoryFragment).commit()
+
         }
 
 

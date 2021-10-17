@@ -1,15 +1,7 @@
 [
     {
-        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sign_up.xml.flat",
-        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\activity_sign_up.xml"
-    },
-    {
         "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
@@ -24,6 +16,50 @@
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\drawable\\ic_android_black_24dp.xml"
     },
     {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sign_in.xml.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\activity_sign_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_follower.xml.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\fragment_follower.xml"
+    },
+    {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_repository.xml.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\item_repository.xml"
+    },
+    {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_follower.xml.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\item_follower.xml"
+    },
+    {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\drawable_github_icon.png.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\drawable\\github_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sign_up.xml.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\activity_sign_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
         "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
@@ -36,8 +72,8 @@
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sign_in.xml.flat",
-        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\activity_sign_in.xml"
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_repository.xml.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\fragment_repository.xml"
     },
     {
         "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
@@ -52,35 +88,15 @@
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\activity_home.xml"
     },
     {
-        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
-    },
-    {
-        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rectangle_corner.xml.flat",
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\drawable\\rectangle_corner.xml"
     },
     {
-        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\drawable_github_icon.png.flat",
-        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\drawable\\github_icon.png"
     }
 ]

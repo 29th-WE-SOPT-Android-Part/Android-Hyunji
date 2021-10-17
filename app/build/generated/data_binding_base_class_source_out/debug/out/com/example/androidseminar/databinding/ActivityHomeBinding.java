@@ -4,6 +4,7 @@ package com.example.androidseminar.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import androidx.fragment.app.FragmentContainerView;
 import com.example.androidseminar.R;
 import com.example.androidseminar.User;
 import java.lang.Deprecated;
@@ -18,28 +20,19 @@ import java.lang.Object;
 
 public abstract class ActivityHomeBinding extends ViewDataBinding {
   @NonNull
+  public final FragmentContainerView containerHome;
+
+  @NonNull
   public final TextView homeAgeTv;
 
   @NonNull
   public final TextView homeAgeWTv;
 
   @NonNull
-  public final ImageView homeGithubiconIv;
+  public final Button homeFollowerBtn;
 
   @NonNull
   public final TextView homeHello1Tv;
-
-  @NonNull
-  public final TextView homeHello2Tv;
-
-  @NonNull
-  public final TextView homeHello3Tv;
-
-  @NonNull
-  public final TextView homeHello4Tv;
-
-  @NonNull
-  public final TextView homeHello5Tv;
 
   @NonNull
   public final TextView homeMbtiTv;
@@ -57,30 +50,31 @@ public abstract class ActivityHomeBinding extends ViewDataBinding {
   public final ImageView homeProfileIv;
 
   @NonNull
+  public final Button homeRepositoryBtn;
+
+  @NonNull
   public final TextView homeTitleTv;
 
   @Bindable
   protected User mUser;
 
   protected ActivityHomeBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      TextView homeAgeTv, TextView homeAgeWTv, ImageView homeGithubiconIv, TextView homeHello1Tv,
-      TextView homeHello2Tv, TextView homeHello3Tv, TextView homeHello4Tv, TextView homeHello5Tv,
-      TextView homeMbtiTv, TextView homeMbtiWTv, TextView homeNameTv, TextView homeNameWTv,
-      ImageView homeProfileIv, TextView homeTitleTv) {
+      FragmentContainerView containerHome, TextView homeAgeTv, TextView homeAgeWTv,
+      Button homeFollowerBtn, TextView homeHello1Tv, TextView homeMbtiTv, TextView homeMbtiWTv,
+      TextView homeNameTv, TextView homeNameWTv, ImageView homeProfileIv, Button homeRepositoryBtn,
+      TextView homeTitleTv) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.containerHome = containerHome;
     this.homeAgeTv = homeAgeTv;
     this.homeAgeWTv = homeAgeWTv;
-    this.homeGithubiconIv = homeGithubiconIv;
+    this.homeFollowerBtn = homeFollowerBtn;
     this.homeHello1Tv = homeHello1Tv;
-    this.homeHello2Tv = homeHello2Tv;
-    this.homeHello3Tv = homeHello3Tv;
-    this.homeHello4Tv = homeHello4Tv;
-    this.homeHello5Tv = homeHello5Tv;
     this.homeMbtiTv = homeMbtiTv;
     this.homeMbtiWTv = homeMbtiWTv;
     this.homeNameTv = homeNameTv;
     this.homeNameWTv = homeNameWTv;
     this.homeProfileIv = homeProfileIv;
+    this.homeRepositoryBtn = homeRepositoryBtn;
     this.homeTitleTv = homeTitleTv;
   }
 

@@ -15,7 +15,13 @@ class FollowerFragment : Fragment() {
     private lateinit var binding: FragmentFollowerBinding
 
 
-    val followerData=mutableListOf<Info>()
+    val followerData=mutableListOf<Info>(
+        Info(R.drawable.github_icon,"윤현지","안드YB"),
+        Info(R.drawable.github_icon,"윤현지","안드YB"),
+        Info(R.drawable.github_icon,"윤현지","안드YB"),
+        Info(R.drawable.github_icon,"윤현지","안드YB")
+
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +32,7 @@ class FollowerFragment : Fragment() {
 
 
 
-        addData()
+        //addData()
         initFollowerRecyclerView()
 
 
@@ -34,14 +40,14 @@ class FollowerFragment : Fragment() {
         return binding.root
     }
 
-    fun addData(){
-        followerData.add(Info(R.drawable.github_icon,"윤현지","안드YB"))
-        followerData.add(Info(R.drawable.github_icon,"윤현지","안드YB"))
-        followerData.add(Info(R.drawable.github_icon,"윤현지","안드YB"))
-        followerData.add(Info(R.drawable.github_icon,"윤현지","안드YB"))
-    }
+//    private fun addData(){
+//        followerData.add(Info(R.drawable.github_icon,"윤현지","안드YB"))
+//        followerData.add(Info(R.drawable.github_icon,"윤현지","안드YB"))
+//        followerData.add(Info(R.drawable.github_icon,"윤현지","안드YB"))
+//        followerData.add(Info(R.drawable.github_icon,"윤현지","안드YB"))
+//    }
 
-    fun initFollowerRecyclerView(){
+    private fun initFollowerRecyclerView(){
         adapter= FollowerRecyclerViewAdapter()
         adapter.infoList=followerData
         binding.followerRecyclerview.adapter=adapter

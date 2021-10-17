@@ -1,5 +1,13 @@
 [
     {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_follower.xml",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\fragment_follower.xml"
+    },
+    {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_repository.xml",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\fragment_repository.xml"
+    },
+    {
         "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_sign_in.xml",
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\activity_sign_in.xml"
     },
@@ -8,7 +16,15 @@
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\activity_sign_up.xml"
     },
     {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_follower.xml",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\item_follower.xml"
+    },
+    {
         "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_home.xml",
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\activity_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_repository.xml",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\item_repository.xml"
     }
 ]

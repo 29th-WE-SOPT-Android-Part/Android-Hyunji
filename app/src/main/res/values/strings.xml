@@ -2,4 +2,15 @@
     <string name="app_name">AndroidSeminar</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="explain">
+        """
+        서울에 살고 있고,
+
+        현재 24살이고 안드로이드 YB입니다..
+
+        안드 좋아, 안드 좋아, 안드,,
+
+        안드 뿌셔, 안드 뿌셔, 뿌셔,,
+        """
+    </string>
 </resources>
