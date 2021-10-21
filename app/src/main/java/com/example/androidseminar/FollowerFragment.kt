@@ -9,16 +9,15 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.androidseminar.databinding.FragmentFollowerBinding
 
 
-class FollowerFragment : Fragment() {
+class FollowerFragment : Fragment(),ItemDragListener {
 
     private lateinit var adapter:FollowerRecyclerViewAdapter
     private lateinit var binding: FragmentFollowerBinding
-    private lateinit var callback: MyTouchHelperCallback
-    private lateinit var touchHelper: ItemTouchHelper
-
+    private lateinit var itemTouchHelper: ItemTouchHelper
 
     val followerData=mutableListOf<Info>(
         Info(R.drawable.github_icon,"윤현지","안드YB"),
@@ -36,10 +35,33 @@ class FollowerFragment : Fragment() {
         binding= FragmentFollowerBinding.inflate(inflater,container,false)
 
 
-
-
         initFollowerRecyclerView()
+        itemClick()
 
+        return binding.root
+    }
+
+
+
+    private fun initFollowerRecyclerView(){
+        adapter= FollowerRecyclerViewAdapter(this)
+        adapter.infoList=followerData
+
+        binding.followerRecyclerview.layoutManager=LinearLayoutManager(requireContext())
+
+
+        itemTouchHelper = ItemTouchHelper(ItemTouchHelperCallback(adapter))
+        itemTouchHelper.attachToRecyclerView(binding.followerRecyclerview)
+        binding.followerRecyclerview.adapter=adapter
+
+
+
+        //recyclerview 아이템 간격 조절
+        binding.followerRecyclerview.addItemDecoration(HorizontalItemDecoration(10f,10f,20, ContextCompat.getColor(requireContext(),R.color.hot_pink)))
+
+    }
+
+    private fun itemClick(){
         adapter.setOnItemClickListener(object:FollowerRecyclerViewAdapter.OnItemClickListener{
             override fun onItemClick(v: View, info: Info, pos: Int) {
                 Intent(v.context,DetailActivity::class.java)
@@ -49,36 +71,10 @@ class FollowerFragment : Fragment() {
                     .run{startActivity(this)}
             }
         })
-
-
-
-        return binding.root
     }
 
-
-
-    private fun initFollowerRecyclerView(){
-        adapter= FollowerRecyclerViewAdapter()
-        adapter.infoList=followerData
-
-        binding.followerRecyclerview.layoutManager=LinearLayoutManager(requireContext())
-
-        //아이템 드래그 시 이동하도록
-        callback= MyTouchHelperCallback(adapter,adapter)
-        touchHelper= ItemTouchHelper(callback)
-        touchHelper.attachToRecyclerView(binding.followerRecyclerview)
-        binding.followerRecyclerview.adapter=adapter
-        adapter.startDrag(object : FollowerRecyclerViewAdapter.OnStartDragListener {
-            override fun onStartDrag(viewHolder: FollowerRecyclerViewAdapter.MyViewHolder) {
-                touchHelper.startDrag(viewHolder)
-            }
-        })
-
-
-
-        //recyclerview 아이템 간격 조절
-        binding.followerRecyclerview.addItemDecoration(HorizontalItemDecoration(10f,10f,20, ContextCompat.getColor(requireContext(),R.color.hot_pink)))
-
+    override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
+        itemTouchHelper.startDrag(viewHolder)
     }
 
 }

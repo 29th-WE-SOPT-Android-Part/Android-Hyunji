@@ -2,6 +2,7 @@ package com.example.androidseminar
 
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,20 +10,35 @@ import com.example.androidseminar.databinding.ItemFollowerBinding
 import java.util.*
 
 
-class FollowerRecyclerViewAdapter
+class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
     : RecyclerView.Adapter<FollowerRecyclerViewAdapter.MyViewHolder>(),
-        MyTouchHelperCallback.OnItemMoveListener
+        ItemActionListener
 {
 
     var infoList=mutableListOf<Info>()
+
+    override fun onItemMoved(from: Int, to: Int) {
+        if (from == to) {
+            return
+        }
+
+        val fromItem = infoList.removeAt(from)
+        infoList.add(to, fromItem)
+        notifyItemMoved(from, to)
+    }
+
+    override fun onItemSwiped(position: Int) {
+        infoList.removeAt(position)
+        notifyItemRemoved(position)
+    }
 
 
     interface OnItemClickListener{
         fun onItemClick(v: View,info:Info,pos:Int)
     }
-    private var listener:OnItemClickListener?=null
-    fun setOnItemClickListener(listener:OnItemClickListener){
-        this.listener=listener
+    private var clickListener:OnItemClickListener?=null
+    fun setOnItemClickListener(clickListener:OnItemClickListener){
+        this.clickListener=clickListener
     }
 
     override fun onCreateViewHolder(
@@ -30,7 +46,7 @@ class FollowerRecyclerViewAdapter
         viewType: Int
     ): FollowerRecyclerViewAdapter.MyViewHolder {
         val binding=ItemFollowerBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return MyViewHolder(binding)
+        return MyViewHolder(binding,listener)
     }
 
     override fun onBindViewHolder(holder: FollowerRecyclerViewAdapter.MyViewHolder, position: Int) {
@@ -39,21 +55,28 @@ class FollowerRecyclerViewAdapter
 
     override fun getItemCount(): Int =infoList.size
 
-    inner class MyViewHolder(private val binding: ItemFollowerBinding):RecyclerView.ViewHolder(binding.root){
+    inner class MyViewHolder(private val binding: ItemFollowerBinding,listener: ItemDragListener):RecyclerView.ViewHolder(binding.root){
 
 
+        init {
+
+            binding.dragHandle.setOnTouchListener { v, event ->
+                if (event.action == MotionEvent.ACTION_DOWN) {
+                    listener.onStartDrag(this)
+                }
+                false
+            }
+        }
 
         fun bind(info:Info){
             binding.nameTv.text=info.follower_name
             binding.partNameTv.text=info.follower_part
             binding.imageIv.setImageResource(info.follower_img)
 
-
-
             val pos=adapterPosition
             if(pos!=RecyclerView.NO_POSITION){
                 itemView.setOnClickListener {
-                    listener?.onItemClick(itemView,info,pos)
+                    clickListener?.onItemClick(itemView,info,pos)
                 }
             }
         }
@@ -61,27 +84,6 @@ class FollowerRecyclerViewAdapter
 
     }
 
-    interface OnStartDragListener{
-        fun onStartDrag(viewHolder: MyViewHolder)
-    }
-    private var dragListener:OnStartDragListener?=null
-    fun startDrag(listener:OnStartDragListener){
-        this.dragListener=listener
-    }
-
-    override fun onItemMove(fromPosition: Int, toPosition: Int) {
-        Collections.swap(infoList, fromPosition, toPosition)
-        notifyItemMoved(fromPosition, toPosition)
-    }
-
-    fun afterDragAndDrop(){
-        notifyDataSetChanged()
-    }
-
-    fun removeTask(position: Int){
-        infoList.removeAt(position)
-        notifyItemRemoved(position)
-    }
 
 
 }

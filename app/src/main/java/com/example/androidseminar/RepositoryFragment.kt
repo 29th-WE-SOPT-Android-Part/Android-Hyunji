@@ -41,13 +41,6 @@ class RepositoryFragment : Fragment() {
         return binding.root
     }
 
-//    private fun addData(){
-//        repoData.add(RepoInfo("repository1","첫번째 레포지토리"))
-//        repoData.add(RepoInfo("repository2","두번째 레포지토리"))
-//        repoData.add(RepoInfo("repository3","세번째 레포지토리"))
-//        repoData.add(RepoInfo("repository4","네번째 레포지토리"))
-//
-//    }
 
     private fun initRepoRecyclerView(){
         adapter= RepositoryRecyclerViewAdapter()

@@ -1791,6 +1791,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable github_icon
 drawable ic_android_black_24dp
+drawable ic_baseline_drag_handle_24
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
@@ -2015,6 +2016,7 @@ id dragLeft
 id dragRight
 id dragStart
 id dragUp
+id drag_handle
 id dropdown_menu
 id easeIn
 id easeInOut

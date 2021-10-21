@@ -22,7 +22,13 @@ class HomeActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
         binding.user=User("윤현지","24","isfp")
 
-       // initTransactionEvent()
+       initTransactionEvent()
+
+        setContentView(binding.root)
+    }
+
+
+    private fun initTransactionEvent(){
         supportFragmentManager.beginTransaction().add(R.id.container_home,followerFragment).commit()
 
 
@@ -34,12 +40,5 @@ class HomeActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().replace(R.id.container_home,repositoryFragment).commit()
         }
 
-
-
-
-
-        setContentView(binding.root)
     }
-
-
 }
