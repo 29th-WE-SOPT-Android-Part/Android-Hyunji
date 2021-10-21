@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
@@ -11,10 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        app:layout_constraintBottom_toTopOf="@id/repository_explain_tv"
         android:text="안드로이드 과제 레포지토리"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/repository_explain_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,15 +22,13 @@
         android:id="@+id/repository_explain_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:maxLines="1"
         android:ellipsize="end"
+        android:text="안드로이드YB의 레포지토리입니다"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/repository_name_tv"
         app:layout_constraintStart_toStartOf="@id/repository_name_tv"
-        android:text="안드로이드YB"/>
-
-
-
+        app:layout_constraintTop_toBottomOf="@id/repository_name_tv" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -52,6 +52,10 @@
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\drawable\\github_icon.png"
     },
     {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_detail.xml.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\activity_detail.xml"
+    },
+    {
         "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sign_up.xml.flat",
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\layout\\activity_sign_up.xml"
     },
@@ -90,6 +94,10 @@
     {
         "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\drawable_line_divider.xml.flat",
+        "source": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\src\\main\\res\\drawable\\line_divider.xml"
     },
     {
         "merged": "C:\\Users\\Hyeonji\\Android-Hyunji\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rectangle_corner.xml.flat",

@@ -90,30 +90,34 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Hy
 		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:11:9-52
-activity#com.example.androidseminar.SignUpActivity
+activity#com.example.androidseminar.DetailActivity
 ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:12:9-61
 	android:name
 		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:12:19-49
+activity#com.example.androidseminar.SignUpActivity
+ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:13:9-52
+	android:name
+		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:13:19-49
 activity#com.example.androidseminar.HomeActivity
-ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:13:9-15:20
+ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:14:9-59
 	android:name
-		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:13:19-47
+		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:14:19-47
 activity#com.example.androidseminar.SignInActivity
-ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:16:9-23:20
+ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:15:9-23:20
 	android:exported
-		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:16:50-73
+		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:17:13-36
 	android:name
-		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:16:19-49
+		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:16:13-43
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:17:13-21:29
+ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:18:13-22:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:18:17-69
+ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:19:17-69
 	android:name
-		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:18:25-66
+		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:19:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:20:17-77
+ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:21:17-77
 	android:name
-		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:20:27-74
+		ADDED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml:21:27-74
 uses-sdk
 INJECTED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Hyeonji\Android-Hyunji\app\src\main\AndroidManifest.xml

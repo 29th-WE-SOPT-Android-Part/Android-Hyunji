@@ -1149,6 +1149,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color hot_pink
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1798,6 +1799,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable line_divider
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1991,6 +1993,12 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detail_explain_title_tv
+id detail_explain_tv
+id detail_nameW_tv
+id detail_name_tv
+id detail_profile_iv
+id detail_title_tv
 id dialog_button
 id dimensions
 id direct
@@ -2412,6 +2420,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_detail
 layout activity_home
 layout activity_sign_in
 layout activity_sign_up
@@ -2552,6 +2561,7 @@ string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
 string error_icon_content_description
+string explain
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior

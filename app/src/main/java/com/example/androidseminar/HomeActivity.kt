@@ -27,16 +27,13 @@ class HomeActivity : AppCompatActivity() {
 
 
         binding.homeFollowerBtn.setOnClickListener {
-
             supportFragmentManager.beginTransaction().replace(R.id.container_home,followerFragment).commit()
-
         }
 
         binding.homeRepositoryBtn.setOnClickListener {
-
             supportFragmentManager.beginTransaction().replace(R.id.container_home,repositoryFragment).commit()
-
         }
+
 
 
 

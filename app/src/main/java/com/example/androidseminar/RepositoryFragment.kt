@@ -18,9 +18,9 @@ class RepositoryFragment : Fragment() {
 
     val repoData=mutableListOf<RepoInfo>(
         RepoInfo("repository1","첫번째 레포지토리"),
-        RepoInfo("repository1","첫번째 레포지토리"),
-        RepoInfo("repository1","첫번째 레포지토리"),
-        RepoInfo("repository1","첫번째 레포지토리")
+        RepoInfo("repository2","두번째 레포지토리"),
+        RepoInfo("repository3","세번째 레포지토리"),
+        RepoInfo("repository4","네번째 레포지토리")
 
 
 
@@ -55,7 +55,7 @@ class RepositoryFragment : Fragment() {
         binding.repositoryRecyclerview.adapter=adapter
         val gridLayoutManager=GridLayoutManager(requireContext(),2)
         binding.repositoryRecyclerview.layoutManager=gridLayoutManager
-        //binding.repositoryRecyclerview.layoutManager= LinearLayoutManager(requireContext()) //TODO gridLayout으로 바꾸기
+
 
     }
 

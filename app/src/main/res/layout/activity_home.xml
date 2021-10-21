@@ -140,6 +140,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/home_hello1_tv"
             android:text="팔로워\n목록"
+            android:backgroundTint="@color/hot_pink"
             app:layout_constraintEnd_toStartOf="@id/home_repository_btn"
             android:layout_marginTop="20dp"/>
 
@@ -150,6 +151,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/home_hello1_tv"
             app:layout_constraintStart_toEndOf="@id/home_follower_btn"
+            android:backgroundTint="#FFC107"
             android:text="레포지토리\n목록"
             android:layout_marginTop="20dp"/>
 

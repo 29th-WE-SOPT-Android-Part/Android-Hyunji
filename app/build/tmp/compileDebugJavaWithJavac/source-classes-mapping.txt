@@ -8,6 +8,8 @@ com/example/androidseminar/databinding/FragmentRepositoryBinding.java
  com.example.androidseminar.databinding.FragmentRepositoryBinding
 com/example/androidseminar/databinding/ActivityHomeBinding.java
  com.example.androidseminar.databinding.ActivityHomeBinding
+com/example/androidseminar/databinding/ActivityDetailBinding.java
+ com.example.androidseminar.databinding.ActivityDetailBinding
 com/example/androidseminar/databinding/ActivitySignInBinding.java
  com.example.androidseminar.databinding.ActivitySignInBinding
 com/example/androidseminar/databinding/ItemFollowerBinding.java

@@ -19,9 +19,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.AndroidSeminar" >
+        <activity android:name="com.example.androidseminar.DetailActivity" />
         <activity android:name="com.example.androidseminar.SignUpActivity" />
-        <activity android:name="com.example.androidseminar.HomeActivity" >
-        </activity>
+        <activity android:name="com.example.androidseminar.HomeActivity" />
         <activity
             android:name="com.example.androidseminar.SignInActivity"
             android:exported="true" >
