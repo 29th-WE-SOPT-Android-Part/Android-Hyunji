@@ -2,269 +2,182 @@
 ![github_윤현지_ver1-21](https://user-images.githubusercontent.com/70698151/135754394-b330e710-a771-440d-8b38-f3ba5a62545b.png)
 
 
-## 1️⃣ Week 1
+## 1️⃣ Week 2
 
 ### <LEVEL 1 필수과제>
 
-**📌 SignInActivity**
+**1-1 FollowerRecyclerView, RepositoryRecyclerView 만들기 **
 
 <img width="35%" src="https://user-images.githubusercontent.com/48755814/136640122-c77fd162-9045-4693-b8bb-fbe438af34d8.gif"/>
 
+ 
+  1) activity xml에 recyclerview 추가   
+  2) RecyclerView 안 각 아이템 배치할 레이아웃 만들기
+  3) 아이템에 들어갈 data class 만들기
+  4) ViewHolder 와 RecyclerViewAdapter 만들기
+  5) Activity나 Fragment에 연결해주기 (어댑터 달아주기)   
 
-  + 로그인 버튼 클릭 시 아이디, 비밀번호 모두 입력된 경우에만 HomeActivity로 이동
-  + 그렇지 않다면 "로그인 실패"라는 토스트 메시지 출력
++ RecyclerView의 어댑터 
 
 ```kotlin
-binding.btnLogin.setOnClickListener {
-            if(canLogin()){
-                Toast.makeText(this,"안녕하세요 현지님",Toast.LENGTH_SHORT).show()
-                startActivity(intent1)
-            }
-            else{
-                Toast.makeText(this,"로그인 실패",Toast.LENGTH_SHORT).show()
-            }
-        }
-        
- fun canLogin():Boolean{
-        return(binding.homeIdEdit.text.toString().isNotEmpty() && binding.homePwEdit.text.toString().isNotEmpty())
+class RepositoryRecyclerViewAdapter : RecyclerView.Adapter<RepositoryRecyclerViewAdapter.MyViewHolder>() {
 
+    var repoList=mutableListOf<RepoInfo>()
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): RepositoryRecyclerViewAdapter.MyViewHolder {
+        val binding=ItemRepositoryBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return MyViewHolder(binding)
     }
+
+    override fun onBindViewHolder(holder: RepositoryRecyclerViewAdapter.MyViewHolder, position: Int) {
+        holder.bind(repoList[position])
+    }
+
+    override fun getItemCount(): Int =repoList.size
+
+    inner class MyViewHolder(private val binding: ItemRepositoryBinding):RecyclerView.ViewHolder(binding.root){
+
+        fun bind(repoinfo:RepoInfo){
+            binding.repositoryNameTv.text=repoinfo.repo_name
+            binding.repositoryExplainTv.text=repoinfo.repo_explain
+        }
+    }
+
+
+}
 ```
 
-  + EditText는 미리보기 글씨 필요
-  + 비밀번호 EditText는 입력 내용이 가려져야 함
-  ```kotlin
-  <EditText
-        android:id="@+id/home_pw_edit"
-        android:hint="비밀번호를 입력해주세요"
-        android:inputType="textPassword"/>
-  ```
   
-
-**📌 SignUpActivity**
-
-<img width="35%" src="https://user-images.githubusercontent.com/48755814/136640389-caab707a-adf2-4514-b917-4f73762bd36a.gif"/>
-
-  + 이름,아이디,비밀번호,입력이 모두 되어있을 때만 다시 SignInActivity로 이동
-  + 모든 입력이 되어있지 않다면 토스트 메세지 출력
++ 버튼 클릭 시 fragment 전환
 ```kotlin
-binding.btnRegisterFinish.setOnClickListener {
-            if(canRegister()) { //칸 다 채웠을 때
-                finish() //다시 SignInActivity로 이동
-                } 
-            else
-            {
-                Toast.makeText(this,"입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
-            }
-        }
-        setContentView(binding.root)
-    }
+supportFragmentManager.beginTransaction().add(R.id.container_home,followerFragment).commit()
 
-    private fun canRegister():Boolean{ //모든 칸 입력됐는지 확인하는 함수
-        return(binding.registerIdEdit.text.toString().isNotEmpty() && binding.registerPwEdit.text.toString().isNotEmpty() && binding.registerNameEdit.text.toString().isNotEmpty())
+
+        binding.homeFollowerBtn.setOnClickListener {
+            supportFragmentManager.beginTransaction().replace(R.id.container_home,followerFragment).commit()
+        }
+
+        binding.homeRepositoryBtn.setOnClickListener {
+            supportFragmentManager.beginTransaction().replace(R.id.container_home,repositoryFragment).commit()
+        }
+
+```
+  
+  + ellipsize 속성 (종류)   
+  1) end: 끝 말줄임
+  2) marquee: 흐르게
+  3) middle: 중간 말줄임
+  4) none
+  5) start: 중간 말줄임
+ + maxLines 옵션과 함께 사용해서 한줄로만 표시
+ ```kotlin
+ <TextView
+        android:id="@+id/repository_explain_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="안드로이드YB의 레포지토리입니다"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/repository_name_tv"
+        app:layout_constraintTop_toBottomOf="@id/repository_name_tv" />
+  ```   
+
+
+**1-2 둘 중 하나의 RecyclerView는 Grid Layout으로 만들기**
+
+  + GridLayoutManager 사용하기
+  + 인자로 (context, spanCount) 넣어줘야 한다.
+  
+```kotlin
+private fun initRepoRecyclerView(){
+        adapter= RepositoryRecyclerViewAdapter()
+        adapter.repoList=repoData
+        binding.repositoryRecyclerview.adapter=adapter
+        val gridLayoutManager=GridLayoutManager(requireContext(),2)
+        binding.repositoryRecyclerview.layoutManager=gridLayoutManager
+        
+
     }
-  ```
+  ```   
+     
+### <LEVEL 2 도전과제>
        
     
-**📌 HomeActivity**
+**2-1 아이템 클릭시 상세페이지로 이동**
 
-<img width="35%" src="https://user-images.githubusercontent.com/48755814/136640733-e3bf0f06-75f5-4f07-8388-3b3ee80e4304.gif"/>
+  + DetailActivity 를 만든다.
+  + putExtra, get타입Extra를 통해 데이터 넘기고 받는다.
+  
+FollowerFragment.kt
 
-  + Constraintlayout, ImageView, TextView를 활용해서 자기소개 페이지 만들기   
-  (이 부분은 코드로 첨부하기 너무 길어서,,Github를 확인해주세요! 😅)
-
----
-
-### <LEVEL 2 도전과제>
-
-
-**1. 화면이동+@**
-  + 회원가입 성공 시 이전 로그인 화면으로 돌아오기
-  + 단, 회원가입 시 입력한 아이디와 비밀번호가 로그인 창에 입력되어 있어야 함   
-
-SignUpActivity.kt
 ```kotlin
- binding.btnRegisterFinish.setOnClickListener {
-            if(canRegister()) { //칸 다 채웠을 때
-                val intent_s= Intent(this,SignInActivity::class.java).apply {
-                    putExtra("id",binding.registerIdEdit.text.toString())
-                    putExtra("pw",binding.registerPwEdit.text.toString())
-                }
-                setResult(RESULT_OK,intent_s)
-                finish() 
-              }
-  ```   
-  SignInActivity.kt
-```kotlin
- class SignInActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivitySignInBinding
-    lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
-    
-    override fun onCreate(savedInstanceState: Bundle?) {
-    
-    activityResultLauncher = registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()) {
-            if (it.resultCode == RESULT_OK) {
-                val id = it.data?.getStringExtra("id")
-                Log.d("SignInActivity",id.toString())
-                binding.homeIdEdit.setText(id)
-
-                val pw = it.data?.getStringExtra("pw")
-                Log.d("SignInActivity",pw.toString())
-                binding.homePwEdit.setText(pw)
+adapter.setOnItemClickListener(object:FollowerRecyclerViewAdapter.OnItemClickListener{
+            override fun onItemClick(v: View, info: Info, pos: Int) {
+                Intent(v.context,DetailActivity::class.java)
+                    .putExtra("name",info.follower_name)
+                    .putExtra("picture",info.follower_img)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    .run{startActivity(this)}
             }
-        else{
-            Log.d("SignInActivity","result failed")
-        }}
-        
-        binding.btnRegister.setOnClickListener{
-            activityResultLauncher.launch(Intent(this,SignUpActivity::class.java))
+        })
+```   
 
+DetailActivity.kt   
+```kotlin
+  val name=intent.getStringExtra("name")
+        val picture=intent.getIntExtra("picture",0)
+
+        binding.detailNameTv.setText(name)
+        binding.detailProfileIv.setImageResource(picture)
+```   
+
+
+
+
+**2-2 ItemDecoration 활용해서 리스트 간격과 구분선 주기**   
+  + HorizontalItemDecorator 클래스를 만든다. (Item 간격을 조정해주는 클래스)   
+  + RecyclerView에 ItemDecorator을 적용한다.
+
+HorizontalItemDecorator.kt
+```kotlin
+ class HorizontalItemDecoration( private val height: Float, private val padding: Float, private val divHeight:Int, @ColorInt private val color: Int ) : RecyclerView.ItemDecoration() {
+    private val paint = Paint()
+    init { paint.color = color }
+
+    override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
+    ) {
+        super.getItemOffsets(outRect, view, parent, state)
+        outRect.top=divHeight
+        outRect.bottom=divHeight
+    }
+
+    override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
+        val left = parent.paddingStart + padding
+        val right = parent.width - parent.paddingEnd - padding
+        for (i in 0 until parent.childCount) {
+            val child = parent.getChildAt(i)
+            val params = child.layoutParams as RecyclerView.LayoutParams
+            val top = (child.bottom + params.bottomMargin).toFloat()
+            val bottom = top + height
+            c.drawRect(left, top, right, bottom, paint)
         }
-        .
-        .
+    }
+}
+
+  ```   
+  
+  FollowerFragment.kt  
+  ```kotlin
+          binding.followerRecyclerview.addItemDecoration(HorizontalItemDecoration(10f,10f,20, ContextCompat.getColor(requireContext(),R.color.hot_pink)))
 
   ```
               
-**2. 암시적 인텐트**
-  + 깃허브로 이동하는 버튼을 만들고 본인의 깃허브 페이지로 암시적 인텐트를 활용해 이동
-
- ```kotlin
- binding.homeGithubiconIv.setOnClickListener {
-            val intent=Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/hyunji24"))
-            startActivity(intent)
-        }
-```
- > 💡 명시적 인텐트 vs.암시적 인텐트   
- ```
-  명시적 인텐트: 주로 애플리케이션 내부, 실행하고자 하는 컴포넌트나 액티비티가 명확할 때 사용   
-  암시적 인텐트: 어떤 의도만으로 원하는 컴포넌트 실행(ex. 웹페이지,외부 앱)   
-                -> 인텐트 객체에 '특정 웹페이지 띄우고 싶다'라는 정보만 담아 startActivity()함수를 호출하면 시스템은 의도를 적절히 처리할 수 있는 컴포넌트를 찾아 처리결과를 사용자에게 제공한다.
- ```
-
-**3. ScrollView와 사진비율**
-  + ScrollView를 이용해 뷰가 스크롤 되도록 구현
-  + constraintDimensionRatio 속성을 이용해서 1:1로 사진 비율 맞추기
-```kotlin
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeActivity">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        
-        <ImageView
-        android:id="@+id/home_profile_iv"
-        app:layout_constraintDimensionRatio="1:1"/>
-        
-   </androidx.constraintlayout.widget.ConstraintLayout>
- </ScrollView>
- ```
-   
----
-
-### <LEVEL 3 심화과제>   
-
-**1. DataBinding**  
-  + DataBinding을 이용해 HomeActivity의 정보를 코드단에서 한번에 집어넣기
-  + DataBinding을 사용하려면 build.gradle(:app)에 buildFeatures{dataBinding true} 입력해줘야 함   
-  
-
-User.kt
-```kotlin
-data class User(val name:String, val age:String, val mbti:String)
-
-```
-HomeActivity.kt의 onCreate() 내부
-```kotlin
-binding.user=User("윤현지","24","isfp")
-  ```
-activity_home.xml
-```kotlin
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-        <variable
-            name="user"
-            type="com.example.androidseminar.User" />
-    </data>
-    
-    <TextView
-       .
-       .
-        android:text="@{user.name}"
-       />
-  ```
-
-> 💡 ViewBinding vs.DataBinding   
- ```
-  * ViewBinding:
-  - view와 상호 작용하는 코드를 더욱 쉽게 작성할 수 있도록 도와주는 기능
-  - xml파일에서 각 뷰는 id값을 가진다.
-  - 이전에 쓰이던 findViewById 보다 훨씬 효율적이다! findViewById 같은 경우 컴포넌트들이 늘어나면 코드가 매우매우 길어진다..
-  - null safety를 보장한다.
-  -ViewBinding 설정을 하면 각 xml파일에 대해 binding class를 자동으로 생성한다.
-  - 카멜 표기법에 따라 네이밍이 된다.
-  - 상대적으로 간단하며 용량이 절약된다.
- ```
- ```
-  * DataBinding:
-  - 데이터와 뷰를 연결하는 작업을 레이아웃에서 처리하는 기술
-  - 실습처럼, xml에 직접 값을 입력하지 않고 코드를 통해 입력될 수 있도록 한다.
-  - ViewBinding처럼 뷰를 직접 참조하는 바인딩 클래스를 생성한다.
-  - 차이: 데이터 바인딩 라이브러리는 <layout> 태그를 사용하여 만든 레이아웃만 처리한다.
-  - 내부적으로 데이터 바인딩 클래스를 생성할때 루트뷰에 tag를 삽입하는데 뷰바인딩은 그런 작업이 없다.
-  
- ```
- 
-**2. setOnClickListener과 람다식** 
-
-코틀린은 자바와는 달리 '함수형 프로그래밍'이 가능한 언어이다!   
-> 💡 함수형 프로그래밍?   
-함수의 유기적 연결 및 동작이 프로그램의 최우선이 되는 프로그래밍 방식.    
-함수가 일급 객체로써의 의미를 가짐.
-
-> 💡 람다식(lambda)   
- 코틀린에서는 기본으로 함수 자체를 람다식으로 생성하는 것을 지원한다. =익명함수   
-
-자바
-```java
-button.setOnClickListener(new OnClickListener(){ 
-      @Override 
-    public void onClick(View v){ 
-    //... 
-    } 
-   });
-   ```
-
-위와 같이 Button에 Click 발생시 그 이벤트를 캐치할 수 있는 ClickListener를 등록 할 수 있다. 그리고 이때 위와 같이 자바는 무명클래스의 인스턴스를 만들어야 한다.
-
-코틀린에서는 위의 무명클래스 인스턴스 대신 람다를 넘겨줄 수 있다.
-
-
-```kotlin
-button.setOnClickListener{view -> ...}
-```
-이런 코드가 작동하는 이유는 OnClickListener에 추상 메소드가 단 하나만 있기 때문이다.   
-(그런 인터페이스를 함수형 인터페이스 또는 SAM 인터페이스라고 한다.)   
-자바는 위와 같이 함수형 인터페이스를 활용하는 메소드가 많기 때문에 코틀린에서 함수형 인터페이스를 인자로 취하는 자바 메소드를 호출할 때 람다를 넘길 수 있게 해준다.
-
----
-
-### 🔥 이번 과제를 통해 성장한 내용 🔥
-```
-1. ViewBinding/DataBinding의 활용법과 장점   
-2. ConstraintLayout을 이용한 화면 구성   
-3. Activity간 전환/이동, 인텐트   
-4. ScrollView의 활용법   
-5. 자바와는 다른 코틀린의 특징과 활용법   
-   
-그리고..오프라인에서 만난 조원들과 함께 배우고 공유하는 즐거움!
-```
-
-
