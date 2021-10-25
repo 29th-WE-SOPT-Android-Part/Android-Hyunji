@@ -13,17 +13,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androidseminar.databinding.FragmentFollowerBinding
 
 
-class FollowerFragment : Fragment(),ItemDragListener {
+class FollowerFragment : Fragment(), ItemDragListener {
 
-    private lateinit var adapter:FollowerRecyclerViewAdapter
+    private lateinit var adapter: FollowerRecyclerViewAdapter
     private lateinit var binding: FragmentFollowerBinding
     private lateinit var itemTouchHelper: ItemTouchHelper
 
-    val followerData=mutableListOf<Info>(
-        Info(R.drawable.github_icon,"윤현지","안드YB"),
-        Info(R.drawable.github_icon,"홍길동","안드OB"),
-        Info(R.drawable.github_icon,"김길동","서버YB"),
-        Info(R.drawable.github_icon,"박길동","아요YB")
+    val followerData = mutableListOf(
+        Info(R.drawable.github_icon, "윤현지", "안드YB"),
+        Info(R.drawable.github_icon, "홍길동", "안드OB"),
+        Info(R.drawable.github_icon, "김길동", "서버YB"),
+        Info(R.drawable.github_icon, "박길동", "아요YB")
 
     )
 
@@ -32,43 +32,49 @@ class FollowerFragment : Fragment(),ItemDragListener {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding= FragmentFollowerBinding.inflate(inflater,container,false)
+        binding = FragmentFollowerBinding.inflate(inflater, container, false)
 
 
         initFollowerRecyclerView()
         itemClick()
 
+
+
         return binding.root
     }
 
 
+    private fun initFollowerRecyclerView() {
+        adapter = FollowerRecyclerViewAdapter(this)
+        adapter.infoList = followerData
 
-    private fun initFollowerRecyclerView(){
-        adapter= FollowerRecyclerViewAdapter(this)
-        adapter.infoList=followerData
-
-        binding.followerRecyclerview.layoutManager=LinearLayoutManager(requireContext())
-
+        binding.followerRecyclerview.layoutManager = LinearLayoutManager(requireContext())
 
         itemTouchHelper = ItemTouchHelper(ItemTouchHelperCallback(adapter))
         itemTouchHelper.attachToRecyclerView(binding.followerRecyclerview)
-        binding.followerRecyclerview.adapter=adapter
-
+        binding.followerRecyclerview.adapter = adapter
 
 
         //recyclerview 아이템 간격 조절
-        binding.followerRecyclerview.addItemDecoration(HorizontalItemDecoration(10f,10f,20, ContextCompat.getColor(requireContext(),R.color.hot_pink)))
+        binding.followerRecyclerview.addItemDecoration(
+            HorizontalItemDecoration(
+                10f,
+                10f,
+                20,
+                ContextCompat.getColor(requireContext(), R.color.hot_pink)
+            )
+        )
 
     }
 
-    private fun itemClick(){
-        adapter.setOnItemClickListener(object:FollowerRecyclerViewAdapter.OnItemClickListener{
+    private fun itemClick() {
+        adapter.setOnItemClickListener(object : FollowerRecyclerViewAdapter.OnItemClickListener {
             override fun onItemClick(v: View, info: Info, pos: Int) {
-                Intent(v.context,DetailActivity::class.java)
-                    .putExtra("name",info.follower_name)
-                    .putExtra("picture",info.follower_img)
+                Intent(v.context, DetailActivity::class.java)
+                    .putExtra("name", info.followerName)
+                    .putExtra("picture", info.followerImg)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    .run{startActivity(this)}
+                    .run { startActivity(this) }
             }
         })
     }

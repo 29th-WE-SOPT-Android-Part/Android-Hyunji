@@ -53,7 +53,7 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
         holder.bind(infoList[position])
     }
 
-    override fun getItemCount(): Int =infoList.size
+    override fun getItemCount()=infoList.size
 
     inner class MyViewHolder(private val binding: ItemFollowerBinding,listener: ItemDragListener):RecyclerView.ViewHolder(binding.root){
 
@@ -69,9 +69,9 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
         }
 
         fun bind(info:Info){
-            binding.nameTv.text=info.follower_name
-            binding.partNameTv.text=info.follower_part
-            binding.imageIv.setImageResource(info.follower_img)
+            binding.nameTv.text=info.followerName
+            binding.partNameTv.text=info.followerPart
+            binding.imageIv.setImageResource(info.followerImg)
 
             val pos=adapterPosition
             if(pos!=RecyclerView.NO_POSITION){
