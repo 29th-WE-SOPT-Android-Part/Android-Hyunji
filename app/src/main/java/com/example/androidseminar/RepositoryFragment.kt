@@ -16,7 +16,7 @@ class RepositoryFragment : Fragment() {
     private lateinit var adapter:RepositoryRecyclerViewAdapter
     private lateinit var binding: FragmentRepositoryBinding
 
-    val repoData=mutableListOf<RepoInfo>(
+    val repoData=mutableListOf(
         RepoInfo("repository1","첫번째 레포지토리"),
         RepoInfo("repository2","두번째 레포지토리"),
         RepoInfo("repository3","세번째 레포지토리"),
