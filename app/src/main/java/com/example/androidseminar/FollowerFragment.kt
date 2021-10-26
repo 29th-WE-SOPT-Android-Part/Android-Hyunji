@@ -33,12 +33,7 @@ class FollowerFragment : Fragment(), ItemDragListener {
     ): View? {
 
         binding = FragmentFollowerBinding.inflate(inflater, container, false)
-
-
         initFollowerRecyclerView()
-        itemClick()
-
-
 
         return binding.root
     }
@@ -65,18 +60,6 @@ class FollowerFragment : Fragment(), ItemDragListener {
             )
         )
 
-    }
-
-    private fun itemClick() {
-        adapter.setOnItemClickListener(object : FollowerRecyclerViewAdapter.OnItemClickListener {
-            override fun onItemClick(v: View, info: Info, pos: Int) {
-                Intent(v.context, DetailActivity::class.java)
-                    .putExtra("name", info.followerName)
-                    .putExtra("picture", info.followerImg)
-                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    .run { startActivity(this) }
-            }
-        })
     }
 
     override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {

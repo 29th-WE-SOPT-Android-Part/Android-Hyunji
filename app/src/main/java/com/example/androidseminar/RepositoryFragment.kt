@@ -13,16 +13,14 @@ import com.example.androidseminar.databinding.FragmentRepositoryBinding
 
 class RepositoryFragment : Fragment() {
 
-    private lateinit var adapter:RepositoryRecyclerViewAdapter
+    private lateinit var adapter: RepositoryRecyclerViewAdapter
     private lateinit var binding: FragmentRepositoryBinding
 
-    val repoData=mutableListOf(
-        RepoInfo("repository1","첫번째 레포지토리"),
-        RepoInfo("repository2","두번째 레포지토리"),
-        RepoInfo("repository3","세번째 레포지토리"),
-        RepoInfo("repository4","네번째 레포지토리")
-
-
+    val repoData = mutableListOf(
+        RepoInfo("repository1", "첫번째 레포지토리"),
+        RepoInfo("repository2", "두번째 레포지토리"),
+        RepoInfo("repository3", "세번째 레포지토리"),
+        RepoInfo("repository4", "네번째 레포지토리")
 
     )
 
@@ -31,26 +29,20 @@ class RepositoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        binding = FragmentRepositoryBinding.inflate(inflater, container, false)
 
-        binding= FragmentRepositoryBinding.inflate(inflater,container,false)
-
-
-
-        //addData()
         initRepoRecyclerView()
         return binding.root
     }
 
 
-    private fun initRepoRecyclerView(){
-        adapter= RepositoryRecyclerViewAdapter()
-        adapter.repoList=repoData
-        binding.repositoryRecyclerview.adapter=adapter
-        val gridLayoutManager=GridLayoutManager(requireContext(),2)
-        binding.repositoryRecyclerview.layoutManager=gridLayoutManager
-
+    private fun initRepoRecyclerView() {
+        adapter = RepositoryRecyclerViewAdapter()
+        adapter.repoList = repoData
+        binding.repositoryRecyclerview.adapter = adapter
+        val gridLayoutManager = GridLayoutManager(requireContext(), 2)
+        binding.repositoryRecyclerview.layoutManager = gridLayoutManager
 
     }
-
 
 }

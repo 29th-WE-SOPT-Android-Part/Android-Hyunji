@@ -13,18 +13,18 @@ class RepositoryRecyclerViewAdapter : RecyclerView.Adapter<RepositoryRecyclerVie
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): RepositoryRecyclerViewAdapter.MyViewHolder {
+    ): MyViewHolder {
         val binding=ItemRepositoryBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return MyViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RepositoryRecyclerViewAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(repoList[position])
     }
 
     override fun getItemCount(): Int =repoList.size
 
-    inner class MyViewHolder(private val binding: ItemRepositoryBinding):RecyclerView.ViewHolder(binding.root){
+    class MyViewHolder(private val binding: ItemRepositoryBinding):RecyclerView.ViewHolder(binding.root){
 
         fun bind(repoinfo:RepoInfo){
             binding.repositoryNameTv.text=repoinfo.repoName

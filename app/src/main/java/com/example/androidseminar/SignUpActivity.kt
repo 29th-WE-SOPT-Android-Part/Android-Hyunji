@@ -25,7 +25,6 @@ class SignUpActivity : AppCompatActivity() {
                     putExtra("pw",binding.registerPwEdit.text.toString())
                 }
 
-
                 setResult(RESULT_OK,intent_s)
                 finish() } //다시 SignInActivity로 이동
             else{
@@ -33,12 +32,10 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
 
-
-
         setContentView(binding.root)
     }
 
-    fun canRegister():Boolean{
+    private fun canRegister():Boolean{
         return(binding.registerIdEdit.text.toString().isNotEmpty() && binding.registerPwEdit.text.toString().isNotEmpty() && binding.registerNameEdit.text.toString().isNotEmpty())
     }
 }

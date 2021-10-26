@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidseminar.databinding.ItemFollowerBinding
 import java.util.*
@@ -32,34 +33,27 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
         notifyItemRemoved(position)
     }
 
-
-    interface OnItemClickListener{
-        fun onItemClick(v: View,info:Info,pos:Int)
-    }
-    private var clickListener:OnItemClickListener?=null
-    fun setOnItemClickListener(clickListener:OnItemClickListener){
-        this.clickListener=clickListener
-    }
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): FollowerRecyclerViewAdapter.MyViewHolder {
+    ): MyViewHolder {
+        //FollowerRecyclerViewAdapter.MyViewHolder -> redundant qualifier name 이라 해서 ~Adapter. 지움
         val binding=ItemFollowerBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return MyViewHolder(binding,listener)
     }
 
-    override fun onBindViewHolder(holder: FollowerRecyclerViewAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(infoList[position])
+
+
     }
 
     override fun getItemCount()=infoList.size
 
-    inner class MyViewHolder(private val binding: ItemFollowerBinding,listener: ItemDragListener):RecyclerView.ViewHolder(binding.root){
-
+    class MyViewHolder(private val binding: ItemFollowerBinding,listener: ItemDragListener)
+        :RecyclerView.ViewHolder(binding.root){
 
         init {
-
             binding.dragHandle.setOnTouchListener { v, event ->
                 if (event.action == MotionEvent.ACTION_DOWN) {
                     listener.onStartDrag(this)
@@ -73,14 +67,15 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
             binding.partNameTv.text=info.followerPart
             binding.imageIv.setImageResource(info.followerImg)
 
-            val pos=adapterPosition
-            if(pos!=RecyclerView.NO_POSITION){
-                itemView.setOnClickListener {
-                    clickListener?.onItemClick(itemView,info,pos)
-                }
+            itemView.setOnClickListener {
+                val intent=Intent(itemView?.context,DetailActivity::class.java)
+                    .putExtra("name", info.followerName)
+                    .putExtra("picture", info.followerImg)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                ContextCompat.startActivity(itemView.context,intent,null)
             }
-        }
 
+        }
 
     }
 

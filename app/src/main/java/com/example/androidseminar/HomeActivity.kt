@@ -20,7 +20,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
-        binding.user=User("윤현지","24","isfp")
+        binding.user=User("윤현지","24","ISFP")
 
         initTransactionEvent()
 

@@ -14,8 +14,6 @@ class HorizontalItemDecoration( private val height: Float, private val padding: 
     private val paint = Paint()
     init { paint.color = color }
 
-
-
     override fun getItemOffsets(
         outRect: Rect,
         view: View,
