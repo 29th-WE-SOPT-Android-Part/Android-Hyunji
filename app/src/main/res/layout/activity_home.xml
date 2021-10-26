@@ -2,7 +2,8 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".HomeActivity">
 
     <data>
         <variable
@@ -10,20 +11,15 @@
             type="com.example.androidseminar.User" />
     </data>
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeActivity">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/home_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="SOPTHub"
         android:textColor="#F658A6"
         android:textSize="40sp"
@@ -32,17 +28,34 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
+<ScrollView
+    android:id="@+id/scroll"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/home_title_tv"
+    android:layout_marginTop="10dp"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
     <ImageView
         android:id="@+id/home_profile_iv"
         android:src="@drawable/ic_android_black_24dp"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
         app:layout_constraintDimensionRatio="1:1"
         android:background="@drawable/rectangle_corner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_title_tv"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/home_nameW_tv"
@@ -52,7 +65,7 @@
         android:layout_marginTop="10dp"
         android:text="이름"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_marginStart="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/home_name_tv"/>
@@ -64,8 +77,7 @@
         app:layout_constraintTop_toBottomOf="@id/home_profile_iv"
         android:layout_marginTop="10dp"
         android:text="@{user.name}"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="15sp"
         android:layout_marginEnd="100dp"
         app:layout_constraintStart_toEndOf="@id/home_nameW_tv"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -75,10 +87,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/home_nameW_tv"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:text="나이"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_marginStart="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/home_name_tv"/>
@@ -88,10 +100,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/home_name_tv"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:text="@{user.age}"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="15sp"
         android:layout_marginEnd="100dp"
         app:layout_constraintStart_toEndOf="@id/home_ageW_tv"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -101,10 +112,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/home_ageW_tv"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:text="MBTI"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_marginStart="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/home_name_tv"/>
@@ -114,10 +125,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/home_age_tv"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:text="@{user.mbti}"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="15sp"
         android:layout_marginEnd="100dp"
         app:layout_constraintStart_toEndOf="@id/home_ageW_tv"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -126,51 +136,52 @@
         android:id="@+id/home_hello1_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="안녕하십니까 반갑습니다 6v6"
-        android:textSize="20sp"
+        android:text="안녕하십니까6v6"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/home_mbti_tv"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="10dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 
         <Button
             android:id="@+id/home_follower_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_hello1_tv"
+            app:layout_constraintTop_toBottomOf="@id/scroll"
             android:text="팔로워\n목록"
             android:backgroundTint="@color/hot_pink"
             app:layout_constraintEnd_toStartOf="@id/home_repository_btn"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="10dp"/>
 
         <Button
             android:id="@+id/home_repository_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_hello1_tv"
+            app:layout_constraintTop_toBottomOf="@id/scroll"
             app:layout_constraintStart_toEndOf="@id/home_follower_btn"
             android:backgroundTint="#FFC107"
             android:text="레포지토리\n목록"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="10dp"/>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/container_home"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/home_repository_btn"/>
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_repository_btn">
 
 
-
-
-
-
+        </androidx.fragment.app.FragmentContainerView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    </ScrollView>
 
 </layout>
