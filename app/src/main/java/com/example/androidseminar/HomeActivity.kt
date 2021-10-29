@@ -15,17 +15,13 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityHomeBinding
     private lateinit var homeViewPagerAdapter: HomeViewPagerAdapter
-//    val followerFragment=FollowerFragment()
-//    val repositoryFragment=RepositoryFragment()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding= ActivityHomeBinding.inflate(layoutInflater)
-        //binding.user=User("윤현지","24","ISFP")
 
-       // initTransactionEvent()
         initViewPagerAdapter()
         initBottomNavigation()
 
@@ -73,26 +69,4 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-//    private fun initTransactionEvent(){
-//        supportFragmentManager
-//            .beginTransaction()
-//            .add(R.id.container_home,followerFragment)
-//            .commit()
-//
-//
-//        binding.profileFollowerBtn.setOnClickListener {
-//            supportFragmentManager
-//                .beginTransaction()
-//                .replace(R.id.container_home,followerFragment)
-//                .commit()
-//        }
-//
-//        binding.profileRepositoryBtn.setOnClickListener {
-//            supportFragmentManager
-//                .beginTransaction()
-//                .replace(R.id.container_home,repositoryFragment)
-//                .commit()
-//        }
-//
-//    }
 }

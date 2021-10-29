@@ -38,14 +38,12 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
         parent: ViewGroup,
         viewType: Int
     ): MyViewHolder {
-        //FollowerRecyclerViewAdapter.MyViewHolder -> redundant qualifier name 이라 해서 ~Adapter. 지움
         val binding=ItemFollowerBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return MyViewHolder(binding,listener)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(infoList[position])
-
 
     }
 
@@ -68,7 +66,7 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
             binding.partNameTv.text=info.followerPart
             //binding.imageIv.setImageResource(info.followerImg)
 
-            Glide.with(itemView?.context) //TODO 이거 itemView?.context맞는지..
+            Glide.with(itemView?.context)
                 .load("https://yt3.ggpht.com/ytc/AKedOLTBmVN3RYeIJpA6Rlmx1vloR3PGaDYR6sfoCTb4=s900-c-k-c0x00ffffff-no-rj")
                 .circleCrop()
                 .into(binding.imageIv)
