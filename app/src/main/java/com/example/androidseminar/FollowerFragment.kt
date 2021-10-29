@@ -1,6 +1,5 @@
 package com.example.androidseminar
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -53,10 +52,10 @@ class FollowerFragment : Fragment(), ItemDragListener {
         //recyclerview 아이템 간격 조절
         binding.followerRecyclerview.addItemDecoration(
             HorizontalItemDecoration(
-                10f,
+                5f,
                 10f,
                 20,
-                ContextCompat.getColor(requireContext(), R.color.hot_pink)
+                ContextCompat.getColor(requireContext(), R.color.divider_gray)
             )
         )
 

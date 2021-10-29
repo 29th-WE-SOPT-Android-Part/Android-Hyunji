@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.androidseminar.databinding.ItemFollowerBinding
 import java.util.*
 
@@ -65,7 +66,12 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
         fun bind(info:Info){
             binding.nameTv.text=info.followerName
             binding.partNameTv.text=info.followerPart
-            binding.imageIv.setImageResource(info.followerImg)
+            //binding.imageIv.setImageResource(info.followerImg)
+
+            Glide.with(itemView?.context) //TODO 이거 itemView?.context맞는지..
+                .load("https://yt3.ggpht.com/ytc/AKedOLTBmVN3RYeIJpA6Rlmx1vloR3PGaDYR6sfoCTb4=s900-c-k-c0x00ffffff-no-rj")
+                .circleCrop()
+                .into(binding.imageIv)
 
             itemView.setOnClickListener {
                 val intent=Intent(itemView?.context,DetailActivity::class.java)
