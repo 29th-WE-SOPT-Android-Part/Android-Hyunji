@@ -48,16 +48,20 @@
         app:tabSelectedTextColor="@color/medium_pink"
         app:layout_constraintTop_toBottomOf="@id/inner_contraint_layout1"/>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/homefrag_vp"
+    <com.example.androidseminar.NestedScrollableHost
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/home_tablayout">
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/homefrag_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    </com.example.androidseminar.NestedScrollableHost>
 
 
-    </androidx.viewpager2.widget.ViewPager2>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
