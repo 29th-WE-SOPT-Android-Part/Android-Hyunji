@@ -1,6 +1,7 @@
 package com.example.androidseminar
 
 import android.content.Intent
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -34,11 +35,10 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
         notifyItemRemoved(position)
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): MyViewHolder {
-        val binding=ItemFollowerBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
+    : MyViewHolder {
+        val inflater=LayoutInflater.from(parent.context)
+        val binding=ItemFollowerBinding.inflate(inflater,parent,false)
         return MyViewHolder(binding,listener)
     }
 
@@ -61,20 +61,17 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
             }
         }
 
-        fun bind(info:Info){
-            binding.nameTv.text=info.followerName
-            binding.partNameTv.text=info.followerPart
-            //binding.imageIv.setImageResource(info.followerImg)
+        fun bind(item:Info){
 
-            Glide.with(itemView?.context)
-                .load("https://yt3.ggpht.com/ytc/AKedOLTBmVN3RYeIJpA6Rlmx1vloR3PGaDYR6sfoCTb4=s900-c-k-c0x00ffffff-no-rj")
-                .circleCrop()
-                .into(binding.imageIv)
+            with(binding){
+                followerItem=item
+                executePendingBindings()
+            }
 
             itemView.setOnClickListener {
-                val intent=Intent(itemView?.context,DetailActivity::class.java)
-                    .putExtra("name", info.followerName)
-                    .putExtra("picture", info.followerImg)
+                val intent=Intent(itemView.context,DetailActivity::class.java)
+                    .putExtra("name", item.followerName)
+                    //.putExtra("picture", info.followerImg)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 ContextCompat.startActivity(itemView.context,intent,null)
             }

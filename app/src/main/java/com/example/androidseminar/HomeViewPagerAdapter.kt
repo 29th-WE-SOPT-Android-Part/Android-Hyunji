@@ -8,7 +8,7 @@ class HomeViewPagerAdapter(fragmentActivity: FragmentActivity):
 FragmentStateAdapter(fragmentActivity){
     val fragments=mutableListOf<Fragment>()
 
-    override fun getItemCount()=fragments.size //TODO :Int 생략
+    override fun getItemCount()=fragments.size
 
     override fun createFragment(position: Int): Fragment =fragments[position]
 }
