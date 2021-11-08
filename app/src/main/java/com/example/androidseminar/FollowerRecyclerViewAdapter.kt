@@ -1,12 +1,14 @@
 package com.example.androidseminar
 
 import android.content.Intent
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.androidseminar.databinding.ItemFollowerBinding
 import java.util.*
 
@@ -33,18 +35,15 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
         notifyItemRemoved(position)
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): MyViewHolder {
-        //FollowerRecyclerViewAdapter.MyViewHolder -> redundant qualifier name 이라 해서 ~Adapter. 지움
-        val binding=ItemFollowerBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
+    : MyViewHolder {
+        val inflater=LayoutInflater.from(parent.context)
+        val binding=ItemFollowerBinding.inflate(inflater,parent,false)
         return MyViewHolder(binding,listener)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(infoList[position])
-
 
     }
 
@@ -62,15 +61,17 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
             }
         }
 
-        fun bind(info:Info){
-            binding.nameTv.text=info.followerName
-            binding.partNameTv.text=info.followerPart
-            binding.imageIv.setImageResource(info.followerImg)
+        fun bind(item:Info){
+
+            with(binding){
+                followerItem=item
+                executePendingBindings()
+            }
 
             itemView.setOnClickListener {
-                val intent=Intent(itemView?.context,DetailActivity::class.java)
-                    .putExtra("name", info.followerName)
-                    .putExtra("picture", info.followerImg)
+                val intent=Intent(itemView.context,DetailActivity::class.java)
+                    .putExtra("name", item.followerName)
+                    //.putExtra("picture", info.followerImg)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 ContextCompat.startActivity(itemView.context,intent,null)
             }

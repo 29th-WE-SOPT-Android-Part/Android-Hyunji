@@ -1,187 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <data>
-        <variable
-            name="user"
-            type="com.example.androidseminar.User" />
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/home_vp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/home_title_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="SOPTHub"
-        android:textColor="#F658A6"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-<ScrollView
-    android:id="@+id/scroll"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/home_title_tv"
-    android:layout_marginTop="10dp"
-    android:fillViewport="true">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-    <ImageView
-        android:id="@+id/home_profile_iv"
-        android:src="@drawable/ic_android_black_24dp"
-        android:layout_width="150dp"
         android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1:1"
-        android:background="@drawable/rectangle_corner"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bnv_home"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/menu_home"
+        android:id="@+id/bnv_home"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/home_nameW_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/home_profile_iv"
-        android:layout_marginTop="10dp"
-        android:text="이름"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:layout_marginStart="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/home_name_tv"/>
-
-    <TextView
-        android:id="@+id/home_name_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/home_profile_iv"
-        android:layout_marginTop="10dp"
-        android:text="@{user.name}"
-        android:textSize="15sp"
-        android:layout_marginEnd="100dp"
-        app:layout_constraintStart_toEndOf="@id/home_nameW_tv"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:id="@+id/home_ageW_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/home_nameW_tv"
-        android:layout_marginTop="5dp"
-        android:text="나이"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:layout_marginStart="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/home_name_tv"/>
-
-    <TextView
-        android:id="@+id/home_age_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/home_name_tv"
-        android:layout_marginTop="5dp"
-        android:text="@{user.age}"
-        android:textSize="15sp"
-        android:layout_marginEnd="100dp"
-        app:layout_constraintStart_toEndOf="@id/home_ageW_tv"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:id="@+id/home_mbtiW_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/home_ageW_tv"
-        android:layout_marginTop="5dp"
-        android:text="MBTI"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:layout_marginStart="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/home_name_tv"/>
-
-    <TextView
-        android:id="@+id/home_mbti_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/home_age_tv"
-        android:layout_marginTop="5dp"
-        android:text="@{user.mbti}"
-        android:textSize="15sp"
-        android:layout_marginEnd="100dp"
-        app:layout_constraintStart_toEndOf="@id/home_ageW_tv"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:id="@+id/home_hello1_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="안녕하십니까6v6"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_mbti_tv"
-        android:layout_marginTop="10dp"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
-
-        <Button
-            android:id="@+id/home_follower_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/scroll"
-            android:text="팔로워\n목록"
-            android:backgroundTint="@color/hot_pink"
-            app:layout_constraintEnd_toStartOf="@id/home_repository_btn"
-            android:layout_marginTop="10dp"/>
-
-        <Button
-            android:id="@+id/home_repository_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/scroll"
-            app:layout_constraintStart_toEndOf="@id/home_follower_btn"
-            android:backgroundTint="#FFC107"
-            android:text="레포지토리\n목록"
-            android:layout_marginTop="10dp"/>
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/container_home"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_repository_btn">
+        app:layout_constraintEnd_toEndOf="@id/home_vp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:itemIconTint="@color/selector_bottom_navi"
+        app:itemRippleColor="@color/bubblegum"
+        app:itemTextColor="@color/selector_bottom_navi"/>
 
 
-        </androidx.fragment.app.FragmentContainerView>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</layout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

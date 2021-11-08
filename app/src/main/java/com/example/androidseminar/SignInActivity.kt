@@ -17,48 +17,49 @@ class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding= ActivitySignInBinding.inflate(layoutInflater)
-        val intent1= Intent(this,HomeActivity::class.java)
+        binding = ActivitySignInBinding.inflate(layoutInflater)
+        val intent1 = Intent(this, HomeActivity::class.java)
 
 
         activityResultLauncher = registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()) {
+            ActivityResultContracts.StartActivityForResult()
+        ) {
             if (it.resultCode == RESULT_OK) {
                 val id = it.data?.getStringExtra("id")
-                Log.d("SignInActivity",id.toString())
+                Log.d("SignInActivity", id.toString())
                 binding.homeIdEdit.setText(id)
 
                 val pw = it.data?.getStringExtra("pw")
-                Log.d("SignInActivity",pw.toString())
+                Log.d("SignInActivity", pw.toString())
                 binding.homePwEdit.setText(pw)
 
+            } else {
+                Log.d("SignInActivity", "result failed")
             }
-            else{
-                Log.d("SignInActivity","result failed")
-            }}
+        }
 
 
 
         binding.btnLogin.setOnClickListener {
-            if(canLogin()){
-                Toast.makeText(this,"안녕하세요 현지님",Toast.LENGTH_SHORT).show()
+            if (canLogin()) {
+                Toast.makeText(this, "안녕하세요 현지님", Toast.LENGTH_SHORT).show()
                 startActivity(intent1)
-            }
-            else{
-                Toast.makeText(this,"로그인 실패",Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
             }
         }
 
-        binding.btnRegister.setOnClickListener{
-            activityResultLauncher.launch(Intent(this,SignUpActivity::class.java))
+        binding.btnRegister.setOnClickListener {
+            activityResultLauncher.launch(Intent(this, SignUpActivity::class.java))
 
         }
 
         setContentView(binding.root)
     }
 
-    fun canLogin():Boolean{
-        return(binding.homeIdEdit.text.toString().isNotEmpty() && binding.homePwEdit.text.toString().isNotEmpty())
+    fun canLogin(): Boolean {
+        return (binding.homeIdEdit.text.toString()
+            .isNotEmpty() && binding.homePwEdit.text.toString().isNotEmpty())
 
     }
 

@@ -85,7 +85,7 @@
         android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:textSize="15sp"
-        android:background="@drawable/round_corner"/>
+        android:background="@drawable/rectangle_border_pink"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
