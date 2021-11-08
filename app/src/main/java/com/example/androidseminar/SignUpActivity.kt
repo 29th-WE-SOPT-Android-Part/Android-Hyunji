@@ -28,12 +28,6 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    private fun canRegister(): Boolean {
-        return (binding.registerIdEdit.text.toString()
-            .isNotEmpty() && binding.registerPwEdit.text.toString()
-            .isNotEmpty() && binding.registerNameEdit.text.toString().isNotEmpty())
-    }
-
     private fun initSignUpNetwork() {
         val requestSignUpData = RequestSignUpData(
             email = binding.registerIdEdit.text.toString(),
@@ -41,8 +35,7 @@ class SignUpActivity : AppCompatActivity() {
             password = binding.registerPwEdit.text.toString()
         )
 
-        val call: Call<ResponseSignUpData> =
-            ServiceCreator.signupService.postSignUp(requestSignUpData)
+        val call: Call<ResponseSignUpData> = ServiceCreator.sampleService.postSignUp(requestSignUpData)
 
         call.enqueue(object : Callback<ResponseSignUpData> {
             override fun onResponse(

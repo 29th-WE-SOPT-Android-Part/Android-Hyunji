@@ -76,7 +76,7 @@ class SignInActivity : AppCompatActivity() {
                     val data=response.body()?.data
 
                     Toast.makeText(this@SignInActivity,"${data?.name}님 반갑습니다!",Toast.LENGTH_LONG).show()
-                    startActivity(intent1) //TODO intent1안되면 ppt대로
+                    startActivity(intent1)
                 }else{
                     Toast.makeText(this@SignInActivity,"로그인에 실패하셨습니다.",Toast.LENGTH_LONG).show()
                 }
@@ -103,14 +103,6 @@ class SignInActivity : AppCompatActivity() {
             activityResultLauncher.launch(Intent(this, SignUpActivity::class.java))
 
         }
-    }
-
-
-
-    private fun canLogin(): Boolean { //TODO private붙여줌
-        return (binding.homeIdEdit.text.toString()
-            .isNotEmpty() && binding.homePwEdit.text.toString().isNotEmpty())
-
     }
 
 
