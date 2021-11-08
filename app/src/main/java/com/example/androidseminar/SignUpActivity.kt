@@ -7,29 +7,22 @@ import android.util.Log
 import android.widget.Toast
 import com.example.androidseminar.databinding.ActivitySignInBinding
 import com.example.androidseminar.databinding.ActivitySignUpBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SignUpActivity : AppCompatActivity() {
 
 
     private lateinit var binding: ActivitySignUpBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivitySignUpBinding.inflate(layoutInflater)
 
         binding.btnRegisterFinish.setOnClickListener {
-            if (canRegister()) { //칸 다 채웠을 때
-                val intent_s = Intent(this, SignInActivity::class.java).apply {
-                    putExtra("id", binding.registerIdEdit.text.toString())
-                    putExtra("pw", binding.registerPwEdit.text.toString())
-                }
-
-                setResult(RESULT_OK, intent_s)
-                finish()
-            } //다시 SignInActivity로 이동
-            else {
-                Toast.makeText(this, "입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
-            }
+            initSignUpNetwork()
         }
 
         setContentView(binding.root)
@@ -39,5 +32,44 @@ class SignUpActivity : AppCompatActivity() {
         return (binding.registerIdEdit.text.toString()
             .isNotEmpty() && binding.registerPwEdit.text.toString()
             .isNotEmpty() && binding.registerNameEdit.text.toString().isNotEmpty())
+    }
+
+    private fun initSignUpNetwork() {
+        val requestSignUpData = RequestSignUpData(
+            email = binding.registerIdEdit.text.toString(),
+            name = binding.registerNameEdit.text.toString(),
+            password = binding.registerPwEdit.text.toString()
+        )
+
+        val call: Call<ResponseSignUpData> =
+            ServiceCreator.signupService.postSignUp(requestSignUpData)
+
+        call.enqueue(object : Callback<ResponseSignUpData> {
+            override fun onResponse(
+                call: Call<ResponseSignUpData>,
+                response: Response<ResponseSignUpData>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()?.data
+                    val intent2 = Intent(this@SignUpActivity, SignInActivity::class.java).apply {
+                        putExtra("id", binding.registerIdEdit.text.toString())
+                        putExtra("pw", binding.registerPwEdit.text.toString())
+                    }
+                    Toast.makeText(this@SignUpActivity, "${data?.name}님 회원가입 완료", Toast.LENGTH_LONG)
+                        .show()
+                    setResult(RESULT_OK, intent2)
+                    finish()
+                } else {
+                    Toast.makeText(this@SignUpActivity, "회원가입에 실패하셨습니다.", Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseSignUpData>, t: Throwable) {
+                Toast.makeText(this@SignUpActivity, "서버 에러", Toast.LENGTH_LONG).show()
+                Log.e("NetworkTest", "error:$t")
+            }
+        })
+
+
     }
 }
