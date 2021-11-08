@@ -3,12 +3,10 @@ package com.example.androidseminar
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class HomeFollowViewPagerAdapter(fragment:Fragment)
-    : FragmentStateAdapter(fragment){
-        val fragments=mutableListOf<Fragment>()
-    override fun getItemCount(): Int =fragments.size
-    override fun createFragment(position: Int)=fragments[position]
-
+class HomeFollowViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+    val fragments = mutableListOf<Fragment>()
+    override fun getItemCount(): Int = fragments.size
+    override fun createFragment(position: Int) = fragments[position]
 
 
 }

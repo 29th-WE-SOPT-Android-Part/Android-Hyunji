@@ -17,7 +17,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
-        binding.user=User("윤현지","hyunji24","나는야 멋쟁이")
+        binding.user = User("윤현지", "hyunji24", "나는야 멋쟁이")
 
         initTransactionEvent()
         setProfileImg()
@@ -25,10 +25,10 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
-        private fun initTransactionEvent(){
+    private fun initTransactionEvent() {
         parentFragmentManager
             .beginTransaction()
-            .add(R.id.container_home,FollowerFragment())
+            .add(R.id.container_home, FollowerFragment())
             .commit()
 
 
@@ -36,25 +36,25 @@ class ProfileFragment : Fragment() {
         binding.profileFollowerBtn.setOnClickListener {
             parentFragmentManager
                 .beginTransaction()
-                .replace(R.id.container_home,FollowerFragment())
+                .replace(R.id.container_home, FollowerFragment())
                 .commit()
         }
 
         binding.profileRepositoryBtn.setOnClickListener {
             parentFragmentManager
                 .beginTransaction()
-                .replace(R.id.container_home,RepositoryFragment())
+                .replace(R.id.container_home, RepositoryFragment())
                 .commit()
         }
 
     }
 
-        private fun setProfileImg(){
-            Glide.with(this)
-                .load("https://yt3.ggpht.com/ytc/AKedOLTBmVN3RYeIJpA6Rlmx1vloR3PGaDYR6sfoCTb4=s900-c-k-c0x00ffffff-no-rj")
-                .circleCrop()
-                .into(binding.profileIv)
+    private fun setProfileImg() {
+        Glide.with(this)
+            .load("https://yt3.ggpht.com/ytc/AKedOLTBmVN3RYeIJpA6Rlmx1vloR3PGaDYR6sfoCTb4=s900-c-k-c0x00ffffff-no-rj")
+            .circleCrop()
+            .into(binding.profileIv)
 
-        }
+    }
 
 }
