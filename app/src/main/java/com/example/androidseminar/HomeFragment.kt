@@ -19,10 +19,14 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        initAdapter()
-        initTabLayout()
+
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        initAdapter()
+        initTabLayout()
     }
 
     private fun initAdapter(){
