@@ -1,6 +1,7 @@
 ## 1️⃣ Week 4
 
-<p align="center"><img width="35%" src="https://user-images.githubusercontent.com/48755814/139565029-3e9a9be4-540c-4a74-b309-466079bd2f09.gif"/></p>
+<p align="center"><img width="35%" src="https://user-images.githubusercontent.com/48755814/141454411-f61ee992-068d-404a-95b8-39ffdea6f9be.gif"/></p>
+
 
 + Week3 심화과제 3-2도 제출했습니다! :-)   
    
