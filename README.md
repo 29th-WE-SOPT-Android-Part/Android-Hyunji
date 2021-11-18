@@ -108,9 +108,11 @@ object ServiceCreator {
 
   + Okhttp 설명 : <https://square.github.io/okhttp//>
   +  Okhttp도 REST API, HTTP 통신을 간편하게 사용할 수 있도록 다양한 기능을 제공해주는 자바 라이브러리다
-  +  Retrofit , Okhttp 중 하나만 사용해도 통신이 가능하고 둘다 사용하는 것도 가능하다.
-    + 왜❓❓  =레트로핏을 더 편리하게 쓰기 위해서 , 간결해짐
-    + 입력값이나 서버 응답을 로그로 쉽게 확인 가능
+  +  Retrofit , Okhttp 중 하나만 사용해도 통신이 가능하고 둘다 사용하는 것도 가능하다.   
+     
+     
+    + 왜❓❓  =레트로핏을 더 편리하게 쓰기 위해서 , 간결해짐   
+    + 입력값이나 서버 응답을 로그로 쉽게 확인 가능   
     + 중복되는 헤더값들을 편하게 입력가능   
  ![image](https://user-images.githubusercontent.com/48755814/140780290-1a1e2df3-2eba-4630-a6fe-723e1e875edf.png)  
  
@@ -143,12 +145,13 @@ object ServiceCreator {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    private fun provideOkHttpClient( //추가2
-        interceptor: AppInterceptor
-    ): OkHttpClient = OkHttpClient.Builder()
+
+    private fun provideOkHttpClient(interceptor: AppInterceptor): OkHttpClient //추가2
+    = OkHttpClient.Builder()
         .run {
             addInterceptor(interceptor).build()
         }
+
 
     class AppInterceptor : Interceptor { //추가1
         override fun intercept(chain: Interceptor.Chain): Response = with(chain) {
@@ -159,6 +162,7 @@ object ServiceCreator {
             proceed(newRequest)
         }
     }
+
 
     val sampleService: SampleService = retrofit.create(SampleService::class.java)
 }
