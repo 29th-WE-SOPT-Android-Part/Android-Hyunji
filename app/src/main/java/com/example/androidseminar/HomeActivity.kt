@@ -6,26 +6,23 @@ import androidx.databinding.DataBindingUtil.*
 import androidx.viewpager2.widget.ViewPager2
 import com.example.androidseminar.*
 import com.example.androidseminar.adapter.HomeViewPagerAdapter
+import com.example.androidseminar.databinding.ActivityDetailBinding
 import com.example.androidseminar.databinding.ActivityHomeBinding
 import com.example.androidseminar.fragments.HomeFragment
 import com.example.androidseminar.fragments.ImageFragment
 import com.example.androidseminar.fragments.ProfileFragment
+import com.example.androidseminar.util.BaseActivity
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity<ActivityHomeBinding>({ ActivityHomeBinding.inflate(it)}) {
 
-    private lateinit var binding: ActivityHomeBinding
     private lateinit var homeViewPagerAdapter: HomeViewPagerAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-
         initViewPagerAdapter()
         initBottomNavigation()
-
-        setContentView(binding.root)
     }
 
     private fun initViewPagerAdapter() {
