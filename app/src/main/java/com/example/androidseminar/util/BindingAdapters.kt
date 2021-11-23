@@ -1,8 +1,9 @@
-package com.example.androidseminar
+package com.example.androidseminar.util
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.example.androidseminar.R
 
 object BindingAdapters {
 

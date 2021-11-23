@@ -1,4 +1,4 @@
-package com.example.androidseminar
+package com.example.androidseminar.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

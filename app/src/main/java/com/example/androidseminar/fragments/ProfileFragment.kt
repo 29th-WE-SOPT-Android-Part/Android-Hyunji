@@ -1,4 +1,4 @@
-package com.example.androidseminar
+package com.example.androidseminar.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.example.androidseminar.R
+import com.example.androidseminar.data.User
 import com.example.androidseminar.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {

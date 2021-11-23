@@ -1,4 +1,4 @@
-package com.example.androidseminar
+package com.example.androidseminar.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.androidseminar.R
+import com.example.androidseminar.adapter.RepositoryRecyclerViewAdapter
+import com.example.androidseminar.data.RepoInfo
 
 import com.example.androidseminar.databinding.FragmentRepositoryBinding
+import com.example.androidseminar.util.HorizontalItemDecoration
 
 
 class RepositoryFragment : Fragment() {

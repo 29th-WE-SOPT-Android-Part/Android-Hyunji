@@ -1,10 +1,11 @@
-package com.example.androidseminar
+package com.example.androidseminar.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.androidseminar.adapter.HomeFollowViewPagerAdapter
 import com.example.androidseminar.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -30,9 +31,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun initAdapter(){
-        val fragmentList=listOf(HomeFollowerFragment(),HomeFollowingFragment())
+        val fragmentList=listOf(HomeFollowerFragment(), HomeFollowingFragment())
 
-        homeFollowViewPagerAdapter=HomeFollowViewPagerAdapter(this)
+        homeFollowViewPagerAdapter= HomeFollowViewPagerAdapter(this)
         homeFollowViewPagerAdapter.fragments.addAll(fragmentList)
 
         binding.homefragVp.adapter=homeFollowViewPagerAdapter

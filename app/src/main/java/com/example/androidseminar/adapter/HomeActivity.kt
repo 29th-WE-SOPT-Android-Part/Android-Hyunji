@@ -1,15 +1,14 @@
-package com.example.androidseminar
+package com.example.androidseminar.adapter
 
-import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.databinding.DataBindingUtil
 import androidx.databinding.DataBindingUtil.*
 import androidx.viewpager2.widget.ViewPager2
-import com.example.androidseminar.databinding.ActivityDetailBinding
+import com.example.androidseminar.*
 import com.example.androidseminar.databinding.ActivityHomeBinding
+import com.example.androidseminar.fragments.HomeFragment
+import com.example.androidseminar.fragments.ImageFragment
+import com.example.androidseminar.fragments.ProfileFragment
 
 class HomeActivity : AppCompatActivity() {
 

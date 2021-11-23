@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.androidseminar.databinding.ActivitySignInBinding
+import com.example.androidseminar.data.RequestSignUpData
+import com.example.androidseminar.data.ResponseSignUpData
 import com.example.androidseminar.databinding.ActivitySignUpBinding
+import com.example.androidseminar.util.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

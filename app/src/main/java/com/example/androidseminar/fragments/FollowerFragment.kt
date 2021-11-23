@@ -1,4 +1,4 @@
-package com.example.androidseminar
+package com.example.androidseminar.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,13 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidseminar.R
+import com.example.androidseminar.adapter.FollowerRecyclerViewAdapter
+import com.example.androidseminar.data.Info
 import com.example.androidseminar.databinding.FragmentFollowerBinding
+import com.example.androidseminar.util.HorizontalItemDecoration
+import com.example.androidseminar.util.ItemDragListener
+import com.example.androidseminar.util.ItemTouchHelperCallback
 
 
 class FollowerFragment : Fragment(), ItemDragListener {
@@ -51,7 +57,9 @@ class FollowerFragment : Fragment(), ItemDragListener {
 
         //recyclerview 아이템 간격 조절
         binding.followerRecyclerview.addItemDecoration(
-            HorizontalItemDecoration(5f, 10f, 20, ContextCompat.getColor(requireContext(), R.color.divider_gray)
+            HorizontalItemDecoration(5f, 10f, 20, ContextCompat.getColor(requireContext(),
+                R.color.divider_gray
+            )
             )
         )
 

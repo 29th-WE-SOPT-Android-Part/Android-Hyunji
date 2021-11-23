@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/top_constraint_layout"
-    tools:context=".HomeFragment">
+    tools:context=".fragments.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/inner_contraint_layout1"
@@ -48,7 +48,7 @@
         app:tabSelectedTextColor="@color/medium_pink"
         app:layout_constraintTop_toBottomOf="@id/inner_contraint_layout1"/>
 
-    <com.example.androidseminar.NestedScrollableHost
+    <com.example.androidseminar.util.NestedScrollableHost
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    </com.example.androidseminar.NestedScrollableHost>
+    </com.example.androidseminar.util.NestedScrollableHost>
 
 
 

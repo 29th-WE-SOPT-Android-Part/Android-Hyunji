@@ -1,7 +1,8 @@
-package com.example.androidseminar
+package com.example.androidseminar.util
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidseminar.util.ItemActionListener
 
 class ItemTouchHelperCallback(val listener: ItemActionListener) : ItemTouchHelper.Callback() {
     override fun getMovementFlags(

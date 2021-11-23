@@ -1,4 +1,4 @@
-package com.example.androidseminar
+package com.example.androidseminar.data
 
 data class RequestSignUpData(
     val email: String,

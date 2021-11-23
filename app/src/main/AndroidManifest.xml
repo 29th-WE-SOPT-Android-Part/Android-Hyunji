@@ -16,7 +16,7 @@
         android:theme="@style/Theme.AndroidSeminar">
         <activity android:name=".DetailActivity"></activity>
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".adapter.HomeActivity"></activity>
         <activity
             android:name=".SignInActivity"
             android:exported="true">

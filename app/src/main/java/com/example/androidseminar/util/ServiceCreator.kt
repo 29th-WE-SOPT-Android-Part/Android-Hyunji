@@ -1,4 +1,4 @@
-package com.example.androidseminar
+package com.example.androidseminar.util
 
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

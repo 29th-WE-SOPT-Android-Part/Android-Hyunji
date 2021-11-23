@@ -3,12 +3,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ProfileFragment">
+    tools:context=".fragments.ProfileFragment">
 
     <data>
         <variable
             name="user"
-            type="com.example.androidseminar.User" />
+            type="com.example.androidseminar.data.User" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,21 +1,20 @@
-package com.example.androidseminar
+package com.example.androidseminar.adapter
 
 import android.content.Intent
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.MotionEvent
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.androidseminar.databinding.ItemFollowerBinding
-import java.util.*
+import com.example.androidseminar.DetailActivity
+import com.example.androidseminar.data.Info
+import com.example.androidseminar.util.ItemActionListener
+import com.example.androidseminar.util.ItemDragListener
 
 
 class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
     : RecyclerView.Adapter<FollowerRecyclerViewAdapter.MyViewHolder>(),
-        ItemActionListener
+    ItemActionListener
 {
 
     var infoList=mutableListOf<Info>()
@@ -61,7 +60,7 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
             }
         }
 
-        fun bind(item:Info){
+        fun bind(item: Info){
 
             with(binding){
                 followerItem=item
@@ -69,7 +68,7 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
             }
 
             itemView.setOnClickListener {
-                val intent=Intent(itemView.context,DetailActivity::class.java)
+                val intent=Intent(itemView.context, DetailActivity::class.java)
                     .putExtra("name", item.followerName)
                     //.putExtra("picture", info.followerImg)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

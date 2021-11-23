@@ -1,4 +1,4 @@
-package com.example.androidseminar
+package com.example.androidseminar.util
 
 import androidx.recyclerview.widget.RecyclerView
 

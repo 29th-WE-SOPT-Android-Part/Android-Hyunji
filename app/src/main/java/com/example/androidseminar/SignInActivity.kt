@@ -7,7 +7,11 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.androidseminar.adapter.HomeActivity
+import com.example.androidseminar.data.RequestLoginData
+import com.example.androidseminar.data.ResponseLoginData
 import com.example.androidseminar.databinding.ActivitySignInBinding
+import com.example.androidseminar.util.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -60,7 +64,7 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun initNetwork(){
-        val requestLoginData=RequestLoginData(
+        val requestLoginData= RequestLoginData(
             email=binding.homeIdEdit.text.toString(),
             password=binding.homePwEdit.text.toString()
         )

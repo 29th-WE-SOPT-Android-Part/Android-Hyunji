@@ -1,9 +1,9 @@
-package com.example.androidseminar
+package com.example.androidseminar.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidseminar.databinding.ItemFollowerBinding
+import com.example.androidseminar.data.RepoInfo
 import com.example.androidseminar.databinding.ItemRepositoryBinding
 
 class RepositoryRecyclerViewAdapter : RecyclerView.Adapter<RepositoryRecyclerViewAdapter.MyViewHolder>() {
@@ -26,7 +26,7 @@ class RepositoryRecyclerViewAdapter : RecyclerView.Adapter<RepositoryRecyclerVie
 
     class MyViewHolder(private val binding: ItemRepositoryBinding):RecyclerView.ViewHolder(binding.root){
 
-        fun bind(repoinfo:RepoInfo){
+        fun bind(repoinfo: RepoInfo){
             binding.repositoryNameTv.text=repoinfo.repoName
             binding.repositoryExplainTv.text=repoinfo.repoExplain
         }
