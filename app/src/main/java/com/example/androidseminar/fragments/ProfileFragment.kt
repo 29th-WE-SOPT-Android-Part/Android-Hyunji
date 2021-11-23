@@ -46,7 +46,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
                 .replace(R.id.container_home, RepositoryFragment())
                 .commit()
         }
-
     }
 
     private fun setProfileImg() {
@@ -54,6 +53,5 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
             .load("https://yt3.ggpht.com/ytc/AKedOLTBmVN3RYeIJpA6Rlmx1vloR3PGaDYR6sfoCTb4=s900-c-k-c0x00ffffff-no-rj")
             .circleCrop()
             .into(binding.profileIv)
-
     }
 }

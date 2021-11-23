@@ -50,8 +50,6 @@ class ImageFragment : BaseFragment<FragmentImageBinding>() {
                     arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_CODE
                 )
             }
-
-
         }
     }
 
@@ -64,7 +62,6 @@ class ImageFragment : BaseFragment<FragmentImageBinding>() {
                     .into(binding.imageIv)
             }
     }
-
 
     companion object {
         const val REQUEST_CODE = 1

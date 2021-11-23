@@ -1,10 +1,11 @@
-package com.example.androidseminar.adapter
+package com.example.androidseminar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil.*
 import androidx.viewpager2.widget.ViewPager2
 import com.example.androidseminar.*
+import com.example.androidseminar.adapter.HomeViewPagerAdapter
 import com.example.androidseminar.databinding.ActivityHomeBinding
 import com.example.androidseminar.fragments.HomeFragment
 import com.example.androidseminar.fragments.ImageFragment
@@ -44,20 +45,13 @@ class HomeActivity : AppCompatActivity() {
         })
 
         binding.bnvHome.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.menu_profile -> {
-                    binding.homeVp.currentItem = FIRST_FRAGMENT
-                    return@setOnItemSelectedListener true
+            binding.homeVp.currentItem=
+                when(it.itemId){
+                    R.id.menu_profile -> FIRST_FRAGMENT
+                    R.id.menu_home -> SECOND_FRAGMENT
+                    else -> THIRD_FRAGMENT
                 }
-                R.id.menu_home -> {
-                    binding.homeVp.currentItem = SECOND_FRAGMENT
-                    return@setOnItemSelectedListener true
-                }
-                else -> {
-                    binding.homeVp.currentItem = THIRD_FRAGMENT
-                    return@setOnItemSelectedListener true
-                }
-            }
+            return@setOnItemSelectedListener true
         }
     }
 

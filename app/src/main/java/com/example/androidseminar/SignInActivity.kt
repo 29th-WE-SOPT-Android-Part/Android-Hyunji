@@ -1,16 +1,13 @@
 package com.example.androidseminar
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.androidseminar.adapter.HomeActivity
 import com.example.androidseminar.data.RequestLoginData
 import com.example.androidseminar.data.ResponseLoginData
-import com.example.androidseminar.databinding.ActivityDetailBinding
 import com.example.androidseminar.databinding.ActivitySignInBinding
 import com.example.androidseminar.util.BaseActivity
 import com.example.androidseminar.util.ServiceCreator
