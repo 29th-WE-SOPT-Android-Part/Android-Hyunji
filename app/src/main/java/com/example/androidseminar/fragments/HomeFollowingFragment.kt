@@ -5,26 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.androidseminar.databinding.FragmentHomeBinding
 import com.example.androidseminar.databinding.FragmentHomeFollowerBinding
 import com.example.androidseminar.databinding.FragmentHomeFollowingBinding
+import com.example.androidseminar.util.BaseFragment
 
+class HomeFollowingFragment : BaseFragment<FragmentHomeFollowingBinding>() {
 
-class HomeFollowingFragment : Fragment() {
-
-    private lateinit var binding: FragmentHomeFollowingBinding
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        binding = FragmentHomeFollowingBinding.inflate(inflater, container, false)
-
-
-        return binding.root
-
-
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentHomeFollowingBinding {
+        return FragmentHomeFollowingBinding.inflate(inflater,container,false)
     }
-
 }

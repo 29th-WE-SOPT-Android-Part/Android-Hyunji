@@ -14,28 +14,24 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.androidseminar.databinding.FragmentImageBinding
+import com.example.androidseminar.util.BaseFragment
 
-class ImageFragment : Fragment() {
+class ImageFragment : BaseFragment<FragmentImageBinding>() {
 
-    private lateinit var binding: FragmentImageBinding
 
     private lateinit var filterActivityLauncher: ActivityResultLauncher<Intent>
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-
-        binding = FragmentImageBinding.inflate(inflater, container, false)
-
-        initLauncher()
-        openGallery()
-
-        return binding.root
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentImageBinding {
+        return FragmentImageBinding.inflate(inflater,container,false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        initLauncher()
+        openGallery()
+    }
 
     private fun openGallery() {
         binding.btnGallery.setOnClickListener {

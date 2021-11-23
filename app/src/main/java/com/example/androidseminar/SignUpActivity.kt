@@ -7,27 +7,22 @@ import android.util.Log
 import android.widget.Toast
 import com.example.androidseminar.data.RequestSignUpData
 import com.example.androidseminar.data.ResponseSignUpData
+import com.example.androidseminar.databinding.ActivitySignInBinding
 import com.example.androidseminar.databinding.ActivitySignUpBinding
+import com.example.androidseminar.util.BaseActivity
 import com.example.androidseminar.util.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SignUpActivity : AppCompatActivity() {
-
-
-    private lateinit var binding: ActivitySignUpBinding
+class SignUpActivity : BaseActivity<ActivitySignUpBinding>({ ActivitySignUpBinding.inflate(it)}) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivitySignUpBinding.inflate(layoutInflater)
-
         binding.btnRegisterFinish.setOnClickListener {
             initSignUpNetwork()
         }
-
-        setContentView(binding.root)
     }
 
     private fun initSignUpNetwork() {

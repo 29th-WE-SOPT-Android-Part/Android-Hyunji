@@ -13,15 +13,15 @@ import com.example.androidseminar.R
 import com.example.androidseminar.adapter.FollowerRecyclerViewAdapter
 import com.example.androidseminar.data.Info
 import com.example.androidseminar.databinding.FragmentFollowerBinding
+import com.example.androidseminar.util.BaseFragment
 import com.example.androidseminar.util.HorizontalItemDecoration
 import com.example.androidseminar.util.ItemDragListener
 import com.example.androidseminar.util.ItemTouchHelperCallback
 
 
-class FollowerFragment : Fragment(), ItemDragListener {
+class FollowerFragment :ItemDragListener, BaseFragment<FragmentFollowerBinding>() {
 
     private lateinit var adapter: FollowerRecyclerViewAdapter
-    private lateinit var binding: FragmentFollowerBinding
     private lateinit var itemTouchHelper: ItemTouchHelper
 
     val followerData = mutableListOf(
@@ -32,17 +32,17 @@ class FollowerFragment : Fragment(), ItemDragListener {
 
     )
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        binding = FragmentFollowerBinding.inflate(inflater, container, false)
-        initFollowerRecyclerView()
-
-        return binding.root
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentFollowerBinding {
+        return FragmentFollowerBinding.inflate(inflater,container,false)
     }
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        initFollowerRecyclerView()
+    }
 
     private fun initFollowerRecyclerView() {
         adapter = FollowerRecyclerViewAdapter(this)
@@ -53,7 +53,6 @@ class FollowerFragment : Fragment(), ItemDragListener {
         itemTouchHelper = ItemTouchHelper(ItemTouchHelperCallback(adapter))
         itemTouchHelper.attachToRecyclerView(binding.followerRecyclerview)
         binding.followerRecyclerview.adapter = adapter
-
 
         //recyclerview 아이템 간격 조절
         binding.followerRecyclerview.addItemDecoration(
@@ -68,5 +67,7 @@ class FollowerFragment : Fragment(), ItemDragListener {
     override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
         itemTouchHelper.startDrag(viewHolder)
     }
+
+
 
 }

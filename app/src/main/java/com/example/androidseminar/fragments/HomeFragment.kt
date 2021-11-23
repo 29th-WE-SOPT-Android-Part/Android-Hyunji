@@ -7,23 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.androidseminar.adapter.HomeFollowViewPagerAdapter
 import com.example.androidseminar.databinding.FragmentHomeBinding
+import com.example.androidseminar.util.BaseFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
-    private lateinit var binding: FragmentHomeBinding
     private lateinit var homeFollowViewPagerAdapter: HomeFollowViewPagerAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-
-
-
-        return binding.root
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentHomeBinding {
+        return FragmentHomeBinding.inflate(inflater,container,false)
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initAdapter()
@@ -47,5 +44,4 @@ class HomeFragment : Fragment() {
             tab.text=tabLabel[position]
         }.attach()
     }
-
 }

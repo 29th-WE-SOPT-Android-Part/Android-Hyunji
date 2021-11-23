@@ -6,22 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.androidseminar.databinding.FragmentFollowerBinding
+import com.example.androidseminar.databinding.FragmentHomeBinding
 import com.example.androidseminar.databinding.FragmentHomeFollowerBinding
+import com.example.androidseminar.util.BaseFragment
 
 
-class HomeFollowerFragment : Fragment() {
+class HomeFollowerFragment : BaseFragment<FragmentHomeFollowerBinding>() {
 
-    private lateinit var binding: FragmentHomeFollowerBinding
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentHomeFollowerBinding.inflate(inflater, container, false)
-
-
-        return binding.root
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentHomeFollowerBinding {
+        return FragmentHomeFollowerBinding.inflate(inflater,container,false)
     }
 
 }

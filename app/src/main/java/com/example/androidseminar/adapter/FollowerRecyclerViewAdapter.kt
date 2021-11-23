@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidseminar.DetailActivity
 import com.example.androidseminar.data.Info
+import com.example.androidseminar.databinding.ItemFollowerBinding
 import com.example.androidseminar.util.ItemActionListener
 import com.example.androidseminar.util.ItemDragListener
 
@@ -37,7 +38,7 @@ class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
     : MyViewHolder {
         val inflater=LayoutInflater.from(parent.context)
-        val binding=ItemFollowerBinding.inflate(inflater,parent,false)
+        val binding= ItemFollowerBinding.inflate(inflater,parent,false)
         return MyViewHolder(binding,listener)
     }
 

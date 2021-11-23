@@ -9,22 +9,22 @@ import com.bumptech.glide.Glide
 import com.example.androidseminar.R
 import com.example.androidseminar.data.User
 import com.example.androidseminar.databinding.FragmentProfileBinding
+import com.example.androidseminar.util.BaseFragment
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
 
-    private lateinit var binding: FragmentProfileBinding
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentProfileBinding {
+        return FragmentProfileBinding.inflate(inflater,container,false)
+    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentProfileBinding.inflate(inflater, container, false)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.user = User("윤현지", "hyunji24", "나는야 멋쟁이")
-
         initTransactionEvent()
         setProfileImg()
-
-        return binding.root
     }
 
     private fun initTransactionEvent() {
@@ -32,8 +32,6 @@ class ProfileFragment : Fragment() {
             .beginTransaction()
             .add(R.id.container_home, FollowerFragment())
             .commit()
-
-
 
         binding.profileFollowerBtn.setOnClickListener {
             parentFragmentManager
@@ -58,5 +56,4 @@ class ProfileFragment : Fragment() {
             .into(binding.profileIv)
 
     }
-
 }

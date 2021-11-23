@@ -12,13 +12,20 @@ import com.example.androidseminar.adapter.RepositoryRecyclerViewAdapter
 import com.example.androidseminar.data.RepoInfo
 
 import com.example.androidseminar.databinding.FragmentRepositoryBinding
+import com.example.androidseminar.util.BaseFragment
 import com.example.androidseminar.util.HorizontalItemDecoration
 
 
-class RepositoryFragment : Fragment() {
+class RepositoryFragment : BaseFragment<FragmentRepositoryBinding>() {
 
     private lateinit var adapter: RepositoryRecyclerViewAdapter
-    private lateinit var binding: FragmentRepositoryBinding
+
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentRepositoryBinding {
+        return FragmentRepositoryBinding.inflate(inflater,container,false)
+    }
 
     val repoData = mutableListOf(
         RepoInfo("안드로이드 과제 레포지토리", "안드로이드 파트 과제"),
@@ -28,17 +35,9 @@ class RepositoryFragment : Fragment() {
 
     )
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        binding = FragmentRepositoryBinding.inflate(inflater, container, false)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initRepoRecyclerView()
-        return binding.root
     }
-
 
     private fun initRepoRecyclerView() {
         adapter = RepositoryRecyclerViewAdapter()

@@ -10,31 +10,27 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.example.androidseminar.adapter.HomeActivity
 import com.example.androidseminar.data.RequestLoginData
 import com.example.androidseminar.data.ResponseLoginData
+import com.example.androidseminar.databinding.ActivityDetailBinding
 import com.example.androidseminar.databinding.ActivitySignInBinding
+import com.example.androidseminar.util.BaseActivity
 import com.example.androidseminar.util.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SignInActivity : AppCompatActivity() {
+class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBinding.inflate(it)}) {
 
-    private lateinit var binding: ActivitySignInBinding
     lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
     private lateinit var intent1: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivitySignInBinding.inflate(layoutInflater)
         intent1 = Intent(this, HomeActivity::class.java)
 
         getSignUpInfo()
         btnLoginClick()
         btnRegisterClick()
-
-
-
-        setContentView(binding.root)
     }
 
     private fun getSignUpInfo() {
@@ -94,14 +90,6 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun btnRegisterClick() {
-//        binding.btnLogin.setOnClickListener {
-//            if (canLogin()) {
-//                Toast.makeText(this, "안녕하세요 현지님", Toast.LENGTH_SHORT).show()
-//                startActivity(intent1)
-//            } else {
-//                Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
-//            }
-//        }
 
         binding.btnRegister.setOnClickListener {
             activityResultLauncher.launch(Intent(this, SignUpActivity::class.java))
