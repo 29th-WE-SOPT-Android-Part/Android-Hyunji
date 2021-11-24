@@ -18,12 +18,12 @@ import retrofit2.Response
 class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBinding.inflate(it)}) {
 
     lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
-    private lateinit var intent1: Intent
+    private lateinit var intentHome: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        intent1 = Intent(this, HomeActivity::class.java)
+        intentHome = Intent(this, HomeActivity::class.java)
 
         getSignUpInfo()
         btnLoginClick()
@@ -73,7 +73,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
                     val data=response.body()?.data
 
                     Toast.makeText(this@SignInActivity,"${data?.name}님 반갑습니다!",Toast.LENGTH_LONG).show()
-                    startActivity(intent1)
+                    startActivity(intentHome)
                 }else{
                     Toast.makeText(this@SignInActivity,"로그인에 실패하셨습니다.",Toast.LENGTH_LONG).show()
                 }
