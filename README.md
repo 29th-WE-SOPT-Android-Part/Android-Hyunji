@@ -190,7 +190,7 @@ data class ResponseWrapper<T>(
 )
 ```
 - 이렇게 wrapper 데이터 클래스를 만들어주고 기존 Response~Data 에서는 해당 부분을 지워준다.   
-- 레트로핏 인터페이스에서 콜할때 Call<Response~Data> 였던걸 Call<ResponseWrapper<Response~Data>> 로 바꿔주면 된다.   
+- 레트로핏 인터페이스에서 콜할때 Call<Response..Data> 였던걸 Call<ResponseWrapper<Response..Data>> 로 바꿔주면 된다.   
 
 그럼 이런 형태와 같아지는 것!
 ```kotlin
