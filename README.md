@@ -104,7 +104,7 @@ object ServiceCreator {
 ### ⭐ LEVEL 2 과제 ⭐
        
     
-**2-2 OkHttp 활용해보기**
+**✔ 2-2 OkHttp 활용해보기**
 
   + Okhttp 설명 : <https://square.github.io/okhttp//>
   +  Okhttp도 REST API, HTTP 통신을 간편하게 사용할 수 있도록 다양한 기능을 제공해주는 자바 라이브러리다
@@ -176,6 +176,39 @@ object ServiceCreator {
 - 여기까지 다 했으면 인터페이스에 공통으로 들어있는 헤더들을 다 지워도 된다^___^
 
 
+**✔ 2-3 Wrapper 클래스**
+- Response data class를 보면 겹치는 부분들이 있다.
+- val status:Int, success : Boolean, message: String , data : 어떤 데이터클래스
+- 이걸 계속 반복해서 쓰기 귀찮으니까 wrapper클래스로 만들면 편하다
+
+```kotlin
+data class ResponseWrapper<T>(
+    val status: Int,
+    val success: Boolean,
+    val message: String,
+    val data: T?
+)
+```
+- 이렇게 wrapper 데이터 클래스를 만들어주고 기존 Response~Data 에서는 해당 부분을 지워준다.   
+- 레트로핏 인터페이스에서 콜할때 Call<Response~Data> 였던걸 Call<ResponseWrapper<Response~Data>> 로 바꿔주면 된다.   
+
+그럼 이런 형태와 같아지는 것!
+```kotlin
+data class ResponseSignUpData(
+   val status: Int,
+    val success: Boolean,
+    val message: String,
+    val data:Data
+    ){
+    data class Data(
+    val id: Int,
+    val name: String,
+    val password: String,
+    val email:String
+)}
+```
+
+
 
 
 
@@ -186,6 +219,7 @@ object ServiceCreator {
     1) Postman을 통해 서버통신 확인해보는 법   
     2) http 통신에 활용되는 retrofit 사용법
     3) OkHttp가 뭔지, retrofit과 왜 같이 쓰이는지, 사용법
+    4) data class에서 반복되는 부분은 Wrapper<T> 클래스로 묶어서 사용하면 편하다!
  
  
 
