@@ -1,4 +1,4 @@
-package com.example.androidseminar.util
+package com.example.androidseminar.api
 
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -6,8 +6,8 @@ import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object GithubCreator {
-    private const val BASE_URL = "https://api.github.com/"
+object ServiceCreator {
+    private const val BASE_URL = "https://asia-northeast3-we-sopt-29.cloudfunctions.net/api/"
 
     private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -25,12 +25,12 @@ object GithubCreator {
     class AppInterceptor : Interceptor {
         override fun intercept(chain: Interceptor.Chain): Response = with(chain) {
             val newRequest = request().newBuilder()
-                .addHeader("accept", "application/vnd.github.v3+json")
+                .addHeader("Content-Type", "application/json")
                 .build()
 
             proceed(newRequest)
         }
     }
 
-    val githubService: GithubService = retrofit.create(GithubService::class.java)
+    val sampleService: SampleService = retrofit.create(SampleService::class.java)
 }

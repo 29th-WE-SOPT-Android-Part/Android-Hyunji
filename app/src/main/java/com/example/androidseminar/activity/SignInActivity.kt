@@ -1,4 +1,4 @@
-package com.example.androidseminar
+package com.example.androidseminar.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,7 @@ import com.example.androidseminar.data.RequestLoginData
 import com.example.androidseminar.data.ResponseLoginData
 import com.example.androidseminar.databinding.ActivitySignInBinding
 import com.example.androidseminar.util.BaseActivity
-import com.example.androidseminar.util.ServiceCreator
+import com.example.androidseminar.api.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

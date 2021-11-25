@@ -8,14 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.androidseminar.R
-import com.example.androidseminar.data.ResponseGithubFollowerData
 import com.example.androidseminar.data.ResponseUserData
 import com.example.androidseminar.data.ResponseUserEmailData
 import com.example.androidseminar.data.User
 import com.example.androidseminar.databinding.FragmentProfileBinding
 import com.example.androidseminar.util.BaseFragment
-import com.example.androidseminar.util.GithubCreator
-import com.example.androidseminar.util.ServiceCreator
+import com.example.androidseminar.api.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

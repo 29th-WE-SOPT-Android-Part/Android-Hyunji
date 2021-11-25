@@ -6,7 +6,7 @@ import android.view.MotionEvent
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidseminar.DetailActivity
+import com.example.androidseminar.activity.DetailActivity
 import com.example.androidseminar.data.Info
 import com.example.androidseminar.databinding.ItemFollowerBinding
 import com.example.androidseminar.util.ItemActionListener

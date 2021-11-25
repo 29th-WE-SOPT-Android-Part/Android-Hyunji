@@ -1,4 +1,4 @@
-package com.example.androidseminar.util
+package com.example.androidseminar.api
 
 import com.example.androidseminar.data.ResponseGithubFollowerData
 import retrofit2.Call

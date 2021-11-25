@@ -1,10 +1,7 @@
-package com.example.androidseminar
+package com.example.androidseminar.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.example.androidseminar.databinding.ActivityDetailBinding
-import com.example.androidseminar.databinding.ActivitySignInBinding
 import com.example.androidseminar.util.BaseActivity
 
 class DetailActivity : BaseActivity<ActivityDetailBinding>({ ActivityDetailBinding.inflate(it)}) {
