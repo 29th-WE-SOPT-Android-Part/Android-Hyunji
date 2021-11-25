@@ -40,13 +40,13 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>({ ActivitySignUpBindi
             ) {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
-                    val intent2 = Intent(this@SignUpActivity, SignInActivity::class.java).apply {
+                    val intent = Intent(this@SignUpActivity, SignInActivity::class.java).apply {
                         putExtra("id", binding.registerIdEdit.text.toString())
                         putExtra("pw", binding.registerPwEdit.text.toString())
                     }
                     Toast.makeText(this@SignUpActivity, "${data?.name}님 회원가입 완료", Toast.LENGTH_LONG)
                         .show()
-                    setResult(RESULT_OK, intent2)
+                    setResult(RESULT_OK, intent)
                     finish()
                 } else {
                     Toast.makeText(this@SignUpActivity, "회원가입에 실패하셨습니다.", Toast.LENGTH_LONG).show()
