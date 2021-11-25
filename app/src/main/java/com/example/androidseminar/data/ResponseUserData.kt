@@ -1,14 +1,14 @@
 package com.example.androidseminar.data
 
-data class ResponseLoginData(
+data class ResponseUserData(
     val status: Int,
     val success: Boolean,
     val message: String,
-    val data: Data
-) {
-    data class Data(
+    val data: UserData
+){
+    data class UserData(
         val id: Int,
         val name: String,
-        val email: String
+        val email:String
     )
 }

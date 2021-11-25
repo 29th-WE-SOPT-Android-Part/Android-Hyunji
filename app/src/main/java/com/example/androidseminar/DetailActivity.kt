@@ -18,7 +18,5 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>({ ActivityDetailBindi
 
         binding.detailNameTv.setText(name)
         binding.detailProfileIv.setImageResource(picture)
-
-
     }
 }

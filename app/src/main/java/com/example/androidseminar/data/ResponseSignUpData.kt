@@ -2,7 +2,7 @@ package com.example.androidseminar.data
 
 data class ResponseSignUpData(
     val status: Int,
-    val success: String,
+    val success: Boolean,
     val message: String,
     val data: Data
 ){

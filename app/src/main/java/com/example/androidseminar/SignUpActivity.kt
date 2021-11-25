@@ -59,7 +59,5 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>({ ActivitySignUpBindi
                 Log.e("NetworkTest", "error:$t")
             }
         })
-
-
     }
 }

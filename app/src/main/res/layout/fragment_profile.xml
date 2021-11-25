@@ -26,6 +26,7 @@
             android:background="#fa79b0">
 
             <ImageView
+                android:id="@+id/iv_setting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -33,6 +34,25 @@
                 android:layout_marginTop="7dp"
                 android:layout_marginEnd="7dp"
                 android:src="@drawable/icon_setting_2_white"/>
+
+            <ImageView
+                android:id="@+id/iv_user"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintTop_toTopOf="@id/iv_setting"
+                app:layout_constraintBottom_toBottomOf="@id/iv_setting"
+                app:layout_constraintEnd_toStartOf="@id/iv_setting"
+                android:src="@drawable/ic_baseline_person_24" />
+
+            <ImageView
+                android:id="@+id/iv_email"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintTop_toTopOf="@id/iv_setting"
+                app:layout_constraintBottom_toBottomOf="@id/iv_setting"
+                app:layout_constraintEnd_toStartOf="@id/iv_user"
+                android:src="@drawable/ic_baseline_email_24" />
 
             <ImageView
                 android:id="@+id/profile_iv"

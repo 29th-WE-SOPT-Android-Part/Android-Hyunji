@@ -47,7 +47,6 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
                 Log.d("SignInActivity", "result failed")
             }
         }
-
     }
 
     private fun btnLoginClick(){
@@ -82,17 +81,13 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
             override fun onFailure(call: Call<ResponseLoginData>, t: Throwable) {
                 Log.e("NetworkTest","error:$t")
             }
-
         })
     }
 
     private fun btnRegisterClick() {
-
         binding.btnRegister.setOnClickListener {
             activityResultLauncher.launch(Intent(this, SignUpActivity::class.java))
-
         }
     }
-
 
 }

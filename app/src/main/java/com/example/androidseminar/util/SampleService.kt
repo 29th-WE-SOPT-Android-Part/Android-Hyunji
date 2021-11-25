@@ -1,12 +1,8 @@
 package com.example.androidseminar.util
 
-import com.example.androidseminar.data.RequestLoginData
-import com.example.androidseminar.data.RequestSignUpData
-import com.example.androidseminar.data.ResponseLoginData
-import com.example.androidseminar.data.ResponseSignUpData
+import com.example.androidseminar.data.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface SampleService {
     @POST("user/login")
@@ -18,6 +14,17 @@ interface SampleService {
     fun postSignUp(
         @Body body: RequestSignUpData
     ) : Call<ResponseSignUpData>
+
+    @GET("user/{id}")
+    fun getUserData(
+        @Path("id")id:Int
+    ):Call<ResponseUserData>
+
+
+    @GET("user?")
+    fun getUserByEmail(
+        @Query("email")email:String
+    ):Call<ResponseUserEmailData>
 
 
 }
