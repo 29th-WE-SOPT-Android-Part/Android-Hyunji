@@ -9,6 +9,7 @@ import com.example.androidseminar.data.ResponseSignUpData
 import com.example.androidseminar.databinding.ActivitySignUpBinding
 import com.example.androidseminar.util.BaseActivity
 import com.example.androidseminar.api.ServiceCreator
+import com.example.androidseminar.data.ResponseWrapper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,12 +31,12 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>({ ActivitySignUpBindi
             password = binding.registerPwEdit.text.toString()
         )
 
-        val call: Call<ResponseSignUpData> = ServiceCreator.sampleService.postSignUp(requestSignUpData)
+        val call: Call<ResponseWrapper<ResponseSignUpData>> = ServiceCreator.sampleService.postSignUp(requestSignUpData)
 
-        call.enqueue(object : Callback<ResponseSignUpData> {
+        call.enqueue(object : Callback<ResponseWrapper<ResponseSignUpData>> {
             override fun onResponse(
-                call: Call<ResponseSignUpData>,
-                response: Response<ResponseSignUpData>
+                call: Call<ResponseWrapper<ResponseSignUpData>>,
+                response: Response<ResponseWrapper<ResponseSignUpData>>
             ) {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
@@ -52,7 +53,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>({ ActivitySignUpBindi
                 }
             }
 
-            override fun onFailure(call: Call<ResponseSignUpData>, t: Throwable) {
+            override fun onFailure(call: Call<ResponseWrapper<ResponseSignUpData>>, t: Throwable) {
                 Toast.makeText(this@SignUpActivity, "서버 에러", Toast.LENGTH_LONG).show()
                 Log.e("NetworkTest", "error:$t")
             }

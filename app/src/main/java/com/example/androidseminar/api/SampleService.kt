@@ -8,23 +8,23 @@ interface SampleService {
     @POST("user/login")
     fun postLogin(
         @Body body: RequestLoginData
-    ) : Call<ResponseLoginData>
+    ) : Call<ResponseWrapper<ResponseLoginData>>
 
     @POST("user/signup")
     fun postSignUp(
         @Body body: RequestSignUpData
-    ) : Call<ResponseSignUpData>
+    ) : Call<ResponseWrapper<ResponseSignUpData>>
 
     @GET("user/{id}")
     fun getUserData(
         @Path("id")id:Int
-    ):Call<ResponseUserData>
+    ):Call<ResponseWrapper<ResponseUserData>>
 
 
     @GET("user?")
     fun getUserByEmail(
         @Query("email")email:String
-    ):Call<ResponseUserEmailData>
+    ):Call<ResponseWrapper<ResponseUserEmailData>>
 
 
 }

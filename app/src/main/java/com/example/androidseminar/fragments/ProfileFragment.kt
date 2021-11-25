@@ -14,6 +14,7 @@ import com.example.androidseminar.data.User
 import com.example.androidseminar.databinding.FragmentProfileBinding
 import com.example.androidseminar.util.BaseFragment
 import com.example.androidseminar.api.ServiceCreator
+import com.example.androidseminar.data.ResponseWrapper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -51,8 +52,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
                 .beginTransaction()
                 .replace(R.id.container_home, FollowerFragment())
                 .commit()
-
-            //initGithubFollowerNetwork()
         }
 
         binding.profileRepositoryBtn.setOnClickListener {
@@ -73,12 +72,12 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
     }
 
     private fun initUserNetwork(){
-        val call: Call<ResponseUserData> = ServiceCreator.sampleService.getUserData(1)
+        val call: Call<ResponseWrapper<ResponseUserData>> = ServiceCreator.sampleService.getUserData(1)
 
-        call.enqueue(object:Callback<ResponseUserData>{
+        call.enqueue(object:Callback<ResponseWrapper<ResponseUserData>>{
             override fun onResponse(
-                call: Call<ResponseUserData>,
-                response: Response<ResponseUserData>
+                call: Call<ResponseWrapper<ResponseUserData>>,
+                response: Response<ResponseWrapper<ResponseUserData>>
             ) {
                 if(response.isSuccessful){
                 val data=response.body()?.data
@@ -88,7 +87,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
                 }
             }
 
-            override fun onFailure(call: Call<ResponseUserData>, t: Throwable) {
+            override fun onFailure(call: Call<ResponseWrapper<ResponseUserData>>, t: Throwable) {
                 Toast.makeText(requireContext(), "서버 에러", Toast.LENGTH_LONG).show()
                 Log.e("NetworkTest", "error:$t")
             }
@@ -96,12 +95,12 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
     }
 
     private fun initUserEmailNetwork(){
-        val call: Call<ResponseUserEmailData> = ServiceCreator.sampleService.getUserByEmail("kimwy1997@gmail.com")
+        val call: Call<ResponseWrapper<ResponseUserEmailData>> = ServiceCreator.sampleService.getUserByEmail("kimwy1997@gmail.com")
 
-        call.enqueue(object:Callback<ResponseUserEmailData>{
+        call.enqueue(object:Callback<ResponseWrapper<ResponseUserEmailData>>{
             override fun onResponse(
-                call: Call<ResponseUserEmailData>,
-                response: Response<ResponseUserEmailData>
+                call: Call<ResponseWrapper<ResponseUserEmailData>>,
+                response: Response<ResponseWrapper<ResponseUserEmailData>>
             ) {
                 if(response.isSuccessful){
                     val data=response.body()?.data
@@ -111,7 +110,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
                 }
             }
 
-            override fun onFailure(call: Call<ResponseUserEmailData>, t: Throwable) {
+            override fun onFailure(call: Call<ResponseWrapper<ResponseUserEmailData>>, t: Throwable) {
                 Toast.makeText(requireContext(), "서버 에러", Toast.LENGTH_LONG).show()
                 Log.e("NetworkTest", "error:$t")
             }

@@ -11,6 +11,7 @@ import com.example.androidseminar.data.ResponseLoginData
 import com.example.androidseminar.databinding.ActivitySignInBinding
 import com.example.androidseminar.util.BaseActivity
 import com.example.androidseminar.api.ServiceCreator
+import com.example.androidseminar.data.ResponseWrapper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -61,12 +62,12 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
             password=binding.homePwEdit.text.toString()
         )
 
-        val call: Call<ResponseLoginData> = ServiceCreator.sampleService.postLogin(requestLoginData)
+        val call: Call<ResponseWrapper<ResponseLoginData>> = ServiceCreator.sampleService.postLogin(requestLoginData)
 
-        call.enqueue(object: Callback<ResponseLoginData> {
+        call.enqueue(object: Callback<ResponseWrapper<ResponseLoginData>> {
             override fun onResponse(
-                call: Call<ResponseLoginData>,
-                response: Response<ResponseLoginData>
+                call: Call<ResponseWrapper<ResponseLoginData>>,
+                response: Response<ResponseWrapper<ResponseLoginData>>
             ) {
                 if(response.isSuccessful){
                     val data=response.body()?.data
@@ -78,7 +79,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
                 }
             }
 
-            override fun onFailure(call: Call<ResponseLoginData>, t: Throwable) {
+            override fun onFailure(call: Call<ResponseWrapper<ResponseLoginData>>, t: Throwable) {
                 Log.e("NetworkTest","error:$t")
             }
         })
