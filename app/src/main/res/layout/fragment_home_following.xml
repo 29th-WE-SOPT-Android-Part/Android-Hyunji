@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#dfdfdf"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomeFollowingFragment">
+    tools:context=".fragments.HomeFollowingFragment">
 
     <TextView
         android:layout_width="wrap_content"
