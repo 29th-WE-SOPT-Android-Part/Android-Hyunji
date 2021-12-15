@@ -15,4 +15,9 @@
         솝트 뿌셔, 번개 뿌셔, 뿌셔,,
         """
     </string>
+    <string name="onborading1">SOPTHUB에 오신걸\n환영합니다!</string>
+    <string name="onborading2">SOPTHUB에서 즐거운 시간\n보내시길 바랍니다!</string>
+    <string name="onborading3">SOPTHUB를\n시작해볼까요?</string>
+
+
 </resources>

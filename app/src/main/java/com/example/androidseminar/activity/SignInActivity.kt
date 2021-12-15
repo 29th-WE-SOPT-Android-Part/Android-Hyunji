@@ -65,6 +65,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
 
     private fun isAutoLogin(){ //TODO 안드세미나 따라한거. 수정 필요할수도
         if(SOPTSharedPreferences.getAutoLogin(this)){
+            shortToast("자동로그인 되었습니다")
             startActivity(Intent(this,HomeActivity::class.java))
             finish()
         }
@@ -90,7 +91,8 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
                     shortToast("${data?.name}님 반갑습니다!")
                     startActivity(intentHome)
                 }else{
-                    Toast.makeText(this@SignInActivity,"로그인에 실패하셨습니다.",Toast.LENGTH_LONG).show()
+                    //Toast.makeText(this@SignInActivity,"로그인에 실패하셨습니다.",Toast.LENGTH_LONG).show()
+                    shortToast("로그인에 실패하셨습니다.")
                 }
             }
 
@@ -105,5 +107,4 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
             activityResultLauncher.launch(Intent(this, SignUpActivity::class.java))
         }
     }
-
 }
