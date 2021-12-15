@@ -14,13 +14,13 @@ import com.example.androidseminar.R
 import com.example.androidseminar.adapter.FollowerRecyclerViewAdapter
 import com.example.androidseminar.api.GithubCreator
 import com.example.androidseminar.data.Info
+import com.example.androidseminar.data.ResponseGithubBioData
 import com.example.androidseminar.data.ResponseGithubFollowerData
 import com.example.androidseminar.databinding.FragmentFollowerBinding
 import com.example.androidseminar.util.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
 
 class FollowerFragment :ItemDragListener, BaseFragment<FragmentFollowerBinding>() {
 

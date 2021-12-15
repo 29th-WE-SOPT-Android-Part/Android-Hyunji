@@ -15,6 +15,7 @@ import com.example.androidseminar.databinding.FragmentProfileBinding
 import com.example.androidseminar.util.BaseFragment
 import com.example.androidseminar.api.ServiceCreator
 import com.example.androidseminar.data.ResponseWrapper
+import com.example.androidseminar.util.shortToast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -81,7 +82,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
             ) {
                 if(response.isSuccessful){
                 val data=response.body()?.data
-                Toast.makeText(requireContext(),"id ${data?.id}번: ${data?.name}님 조회 성공", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(requireContext(),"id ${data?.id}번: ${data?.name}님 조회 성공", Toast.LENGTH_SHORT).show()
+                    requireActivity().shortToast("id ${data?.id}번: ${data?.name}님 조회 성공")
+                    //fragment경우에는 shortToast확장함수 쓸려면 앞에 requireActivity 붙여줘야됨!
             }else {
                     Toast.makeText(requireContext(), "유저 조회 실패", Toast.LENGTH_LONG).show()
                 }

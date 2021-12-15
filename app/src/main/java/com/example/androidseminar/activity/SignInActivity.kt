@@ -12,6 +12,8 @@ import com.example.androidseminar.databinding.ActivitySignInBinding
 import com.example.androidseminar.util.BaseActivity
 import com.example.androidseminar.api.ServiceCreator
 import com.example.androidseminar.data.ResponseWrapper
+import com.example.androidseminar.util.SOPTSharedPreferences
+import com.example.androidseminar.util.shortToast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,6 +30,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
 
         getSignUpInfo()
         btnLoginClick()
+        isAutoLogin()
         btnRegisterClick()
     }
 
@@ -54,6 +57,17 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
         binding.btnLogin.setOnClickListener {
             initNetwork()
         }
+        binding.ibAutoLogin.setOnClickListener {
+            binding.ibAutoLogin.isSelected=!binding.ibAutoLogin.isSelected
+            SOPTSharedPreferences.setAutoLogin(this,binding.ibAutoLogin.isSelected)
+        }
+    }
+
+    private fun isAutoLogin(){ //TODO 안드세미나 따라한거. 수정 필요할수도
+        if(SOPTSharedPreferences.getAutoLogin(this)){
+            startActivity(Intent(this,HomeActivity::class.java))
+            finish()
+        }
     }
 
     private fun initNetwork(){
@@ -72,7 +86,8 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
                 if(response.isSuccessful){
                     val data=response.body()?.data
 
-                    Toast.makeText(this@SignInActivity,"${data?.name}님 반갑습니다!",Toast.LENGTH_LONG).show()
+                    //Toast.makeText(this@SignInActivity,"${data?.name}님 반갑습니다!",Toast.LENGTH_LONG).show()
+                    shortToast("${data?.name}님 반갑습니다!")
                     startActivity(intentHome)
                 }else{
                     Toast.makeText(this@SignInActivity,"로그인에 실패하셨습니다.",Toast.LENGTH_LONG).show()
