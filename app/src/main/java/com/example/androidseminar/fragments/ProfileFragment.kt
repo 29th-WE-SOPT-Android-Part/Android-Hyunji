@@ -39,6 +39,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         binding.ivUser.setOnClickListener {
             //initUserNetwork()
             val intent= Intent(activity, SettingActivity::class.java)
+            startActivity(intent)
         }
         binding.ivEmail.setOnClickListener {
             initUserEmailNetwork()
