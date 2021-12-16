@@ -19,18 +19,20 @@
             android:exported="false" />
         <activity
             android:name=".activity.OnboardingActivity"
-            android:exported="false" />
-        <activity android:name=".activity.DetailActivity" />
-        <activity android:name=".activity.SignUpActivity" />
-        <activity android:name=".activity.HomeActivity" />
-        <activity
-            android:name=".activity.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.DetailActivity" />
+        <activity android:name=".activity.SignUpActivity" />
+        <activity android:name=".activity.HomeActivity" />
+        <activity
+            android:name=".activity.SignInActivity"
+            android:exported="true">
+
         </activity>
     </application>
 

@@ -8,9 +8,9 @@
 
     <ImageView
         android:id="@+id/iv_github"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/img_github"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/faceemoji"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,7 +23,7 @@
         android:text="@string/onborading3"
         android:textColor="@color/medium_pink"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center_horizontal"
@@ -43,6 +43,7 @@
         android:paddingVertical="12dp"
         android:textColor="#ffffff"
         android:textSize="15sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"

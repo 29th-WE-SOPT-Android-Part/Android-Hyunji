@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.androidseminar.R
 import com.example.androidseminar.activity.SignInActivity
 import com.example.androidseminar.databinding.FragmentThirdOnboardingBinding
 import com.example.androidseminar.util.BaseFragment
@@ -27,6 +29,8 @@ class ThirdOnboardingFragment : BaseFragment<FragmentThirdOnboardingBinding>() {
             startActivity(intent)
             activity?.finish()
         }
+
+        //findNavController().navigate(R.id.pop_back_to_first)
     }
 
 
