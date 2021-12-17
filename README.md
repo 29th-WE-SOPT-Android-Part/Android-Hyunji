@@ -1,6 +1,6 @@
 ## 1️⃣ Week 7
 
-<p align="center"><img width="35%" src="https://user-images.githubusercontent.com/48755814/141454411-f61ee992-068d-404a-95b8-39ffdea6f9be.gif"/></p>
+<p align="center"><img width="35%" src="https://user-images.githubusercontent.com/48755814/146564136-aac8404b-f792-4480-ad3d-50af610eb038.gif"/></p>
 
    
 
