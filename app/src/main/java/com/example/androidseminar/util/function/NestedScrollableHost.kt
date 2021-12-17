@@ -1,4 +1,4 @@
-package com.example.androidseminar.util
+package com.example.androidseminar.util.function
 
 import android.content.Context
 import android.util.AttributeSet

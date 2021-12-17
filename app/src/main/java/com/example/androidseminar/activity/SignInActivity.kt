@@ -11,8 +11,7 @@ import com.example.androidseminar.databinding.ActivitySignInBinding
 import com.example.androidseminar.util.BaseActivity
 import com.example.androidseminar.api.ServiceCreator
 import com.example.androidseminar.data.ResponseWrapper
-import com.example.androidseminar.room.UserDatabase
-import com.example.androidseminar.room.UserLoginData
+import com.example.androidseminar.util.room.UserDatabase
 import com.example.androidseminar.util.SOPTSharedPreferences
 import com.example.androidseminar.util.shortToast
 import retrofit2.Call

@@ -48,7 +48,7 @@
         app:tabSelectedTextColor="@color/medium_pink"
         app:layout_constraintTop_toBottomOf="@id/inner_contraint_layout1"/>
 
-    <com.example.androidseminar.util.NestedScrollableHost
+    <com.example.androidseminar.util.function.NestedScrollableHost
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    </com.example.androidseminar.util.NestedScrollableHost>
+    </com.example.androidseminar.util.function.NestedScrollableHost>
 
 
 

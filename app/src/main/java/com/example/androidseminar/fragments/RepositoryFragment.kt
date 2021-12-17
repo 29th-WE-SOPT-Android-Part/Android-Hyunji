@@ -1,7 +1,6 @@
 package com.example.androidseminar.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,7 @@ import com.example.androidseminar.data.RepoInfo
 
 import com.example.androidseminar.databinding.FragmentRepositoryBinding
 import com.example.androidseminar.util.BaseFragment
-import com.example.androidseminar.util.HorizontalItemDecoration
+import com.example.androidseminar.util.function.HorizontalItemDecoration
 
 
 class RepositoryFragment : BaseFragment<FragmentRepositoryBinding>() {

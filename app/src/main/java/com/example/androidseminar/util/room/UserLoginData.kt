@@ -1,4 +1,4 @@
-package com.example.androidseminar.room
+package com.example.androidseminar.util.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

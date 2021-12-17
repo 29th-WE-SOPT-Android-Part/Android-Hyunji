@@ -1,4 +1,4 @@
-package com.example.androidseminar.util
+package com.example.androidseminar.util.function
 
 interface ItemActionListener {
     fun onItemMoved(from: Int, to: Int)
