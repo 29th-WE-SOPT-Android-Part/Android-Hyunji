@@ -30,7 +30,7 @@ class ThirdOnboardingFragment : BaseFragment<FragmentThirdOnboardingBinding>() {
             activity?.finish()
         }
 
-        //findNavController().navigate(R.id.pop_back_to_first)
+
     }
 
 

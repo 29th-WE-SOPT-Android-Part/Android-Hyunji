@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/firstOnboardingFragment"
         android:name="com.example.androidseminar.fragments.FirstOnboardingFragment"
-        android:label="fragment_first_onboarding"
+        android:label="첫번째 화면"
         tools:layout="@layout/fragment_first_onboarding" >
         <action
             android:id="@+id/action_firstOnboardingFragment_to_secondOnboardingFragment"
@@ -16,7 +16,7 @@
     <fragment
         android:id="@+id/secondOnboardingFragment2"
         android:name="com.example.androidseminar.fragments.SecondOnboardingFragment"
-        android:label="fragment_second_onboarding"
+        android:label="두번째 화면"
         tools:layout="@layout/fragment_second_onboarding" >
         <action
             android:id="@+id/action_secondOnboardingFragment2_to_thirdOnboardingFragment"
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/thirdOnboardingFragment"
         android:name="com.example.androidseminar.fragments.ThirdOnboardingFragment"
-        android:label="fragment_third_onboarding"
+        android:label="세번째 화면"
         tools:layout="@layout/fragment_third_onboarding" />
 
 </navigation>
