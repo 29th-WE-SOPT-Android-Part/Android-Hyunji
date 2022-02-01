@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_onboarding"
+    app:startDestination="@id/firstOnboardingFragment">
+    <fragment
+        android:id="@+id/firstOnboardingFragment"
+        android:name="com.example.androidseminar.fragments.FirstOnboardingFragment"
+        android:label="첫번째 화면"
+        tools:layout="@layout/fragment_first_onboarding" >
+        <action
+            android:id="@+id/action_firstOnboardingFragment_to_secondOnboardingFragment"
+            app:destination="@id/secondOnboardingFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondOnboardingFragment2"
+        android:name="com.example.androidseminar.fragments.SecondOnboardingFragment"
+        android:label="두번째 화면"
+        tools:layout="@layout/fragment_second_onboarding" >
+        <action
+            android:id="@+id/action_secondOnboardingFragment2_to_thirdOnboardingFragment"
+            app:destination="@id/thirdOnboardingFragment"
+            app:popUpTo="@id/firstOnboardingFragment"
+            app:popUpToInclusive="false"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdOnboardingFragment"
+        android:name="com.example.androidseminar.fragments.ThirdOnboardingFragment"
+        android:label="세번째 화면"
+        tools:layout="@layout/fragment_third_onboarding" />
+
+</navigation>

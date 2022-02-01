@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androidseminar.activity.DetailActivity
 import com.example.androidseminar.data.Info
 import com.example.androidseminar.databinding.ItemFollowerBinding
-import com.example.androidseminar.util.ItemActionListener
-import com.example.androidseminar.util.ItemDragListener
+import com.example.androidseminar.util.function.ItemActionListener
+import com.example.androidseminar.util.function.ItemDragListener
 
 
 class FollowerRecyclerViewAdapter(private val listener: ItemDragListener)

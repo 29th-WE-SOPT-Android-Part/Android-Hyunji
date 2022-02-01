@@ -3,7 +3,6 @@ package com.example.androidseminar.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.androidseminar.data.RequestLoginData
@@ -12,6 +11,7 @@ import com.example.androidseminar.databinding.ActivitySignInBinding
 import com.example.androidseminar.util.BaseActivity
 import com.example.androidseminar.api.ServiceCreator
 import com.example.androidseminar.data.ResponseWrapper
+import com.example.androidseminar.util.room.UserDatabase
 import com.example.androidseminar.util.SOPTSharedPreferences
 import com.example.androidseminar.util.shortToast
 import retrofit2.Call
@@ -22,6 +22,8 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
 
     lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
     private lateinit var intentHome: Intent
+    val db = UserDatabase.getInstance(applicationContext)
+    private val isAutoLogin:Boolean=false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +32,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
 
         getSignUpInfo()
         btnLoginClick()
-        isAutoLogin()
+        setAutoLogin()
         btnRegisterClick()
     }
 
@@ -63,14 +65,16 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
         }
     }
 
-    private fun isAutoLogin(){ //TODO 안드세미나 따라한거. 수정 필요할수도
+    private fun setAutoLogin(){
         if(SOPTSharedPreferences.getAutoLogin(this)){
+            shortToast("자동로그인 되었습니다")
             startActivity(Intent(this,HomeActivity::class.java))
             finish()
         }
     }
 
     private fun initNetwork(){
+
         val requestLoginData= RequestLoginData(
             email=binding.homeIdEdit.text.toString(),
             password=binding.homePwEdit.text.toString()
@@ -84,13 +88,12 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
                 response: Response<ResponseWrapper<ResponseLoginData>>
             ) {
                 if(response.isSuccessful){
-                    val data=response.body()?.data
 
-                    //Toast.makeText(this@SignInActivity,"${data?.name}님 반갑습니다!",Toast.LENGTH_LONG).show()
+                    val data=response.body()?.data ? : "-"
                     shortToast("${data?.name}님 반갑습니다!")
                     startActivity(intentHome)
                 }else{
-                    Toast.makeText(this@SignInActivity,"로그인에 실패하셨습니다.",Toast.LENGTH_LONG).show()
+                    shortToast("로그인에 실패하셨습니다.")
                 }
             }
 
@@ -105,5 +108,4 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
             activityResultLauncher.launch(Intent(this, SignUpActivity::class.java))
         }
     }
-
 }

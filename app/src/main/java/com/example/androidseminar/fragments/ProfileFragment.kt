@@ -1,5 +1,6 @@
 package com.example.androidseminar.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.androidseminar.R
+import com.example.androidseminar.activity.SettingActivity
 import com.example.androidseminar.data.ResponseUserData
 import com.example.androidseminar.data.ResponseUserEmailData
 import com.example.androidseminar.data.User
@@ -35,7 +37,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         initTransactionEvent()
         setProfileImg()
         binding.ivUser.setOnClickListener {
-            initUserNetwork()
+            //initUserNetwork()
+            val intent= Intent(activity, SettingActivity::class.java)
+            startActivity(intent)
         }
         binding.ivEmail.setOnClickListener {
             initUserEmailNetwork()
