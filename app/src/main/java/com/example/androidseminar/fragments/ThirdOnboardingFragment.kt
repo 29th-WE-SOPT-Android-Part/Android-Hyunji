@@ -27,7 +27,7 @@ class ThirdOnboardingFragment : BaseFragment<FragmentThirdOnboardingBinding>() {
         binding.btnLogin.setOnClickListener {
             val intent= Intent(activity,SignInActivity::class.java)
             startActivity(intent)
-            activity?.finish()
+            requireActivity().finish()
         }
 
 

@@ -5,9 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class UserLoginData(
-    var id:String,
-    var password:String,
-    var autoSelected:Boolean
-){
-    @PrimaryKey(autoGenerate = true) var key:Int=0
-}
+    @PrimaryKey(autoGenerate = true) val key:Int=0,
+    val id:String,
+    val password:String,
+    val autoSelected:Boolean
+)

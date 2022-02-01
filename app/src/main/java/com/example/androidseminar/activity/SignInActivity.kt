@@ -32,7 +32,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
 
         getSignUpInfo()
         btnLoginClick()
-        isAutoLogin()
+        setAutoLogin()
         btnRegisterClick()
     }
 
@@ -65,7 +65,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
         }
     }
 
-    private fun isAutoLogin(){
+    private fun setAutoLogin(){
         if(SOPTSharedPreferences.getAutoLogin(this)){
             shortToast("자동로그인 되었습니다")
             startActivity(Intent(this,HomeActivity::class.java))
@@ -89,7 +89,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>({ ActivitySignInBindi
             ) {
                 if(response.isSuccessful){
 
-                    val data=response.body()?.data
+                    val data=response.body()?.data ? : "-"
                     shortToast("${data?.name}님 반갑습니다!")
                     startActivity(intentHome)
                 }else{

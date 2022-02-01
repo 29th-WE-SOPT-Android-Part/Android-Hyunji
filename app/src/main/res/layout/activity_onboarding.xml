@@ -13,9 +13,7 @@
         android:background="@color/white"
         android:elevation="3dp"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </androidx.appcompat.widget.Toolbar>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <View
         android:layout_width="match_parent"

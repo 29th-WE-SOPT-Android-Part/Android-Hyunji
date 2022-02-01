@@ -9,7 +9,7 @@ import com.example.androidseminar.R
 import com.example.androidseminar.databinding.ActivityOnboardingBinding
 import com.example.androidseminar.util.BaseActivity
 
-class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>({ ActivityOnboardingBinding.inflate(it)}) {
+class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>(ActivityOnboardingBinding::inflate) {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
